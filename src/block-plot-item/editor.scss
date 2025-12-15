@@ -1,0 +1,30 @@
+/* Editor styles */
+@use '../styles/_color';
+
+
+.block-editor-block-list__block.wp-block-mold-plot-item{
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  .plot-item-image{
+    $height: 100px;
+    height: $height;
+    width: $height;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+    background: #f2f2f2;
+  }
+  .plot-item-info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .plot-description-placeholder{
+      min-height: 50px;
+      background: #f2f2f2;
+    }
+  }
+}

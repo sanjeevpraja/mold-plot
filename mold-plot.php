@@ -77,6 +77,7 @@ function wp_mold_plot_register_block()
 	$options = get_option('wp_mold_plot_blocks_settings');
 	$blocks = [
 		'block-plot',
+		'block-plot-item',
 		'block-plot-meta',
 	];
 
