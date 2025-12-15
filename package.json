@@ -1,0 +1,43 @@
+{
+  "name": "wp-mold-plot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "wp-scripts build --output-path=build",
+    "start": "wp-scripts start --output-path=build"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "http://moldthemes.com",
+  "devDependencies": {
+    "@wordpress/babel-preset-default": "^8.18.0",
+    "autoprefixer": "^10.4.21",
+    "babel-loader": "^9.2.1",
+    "browser-sync": "^2.27.11",
+    "css-loader": "^7.1.2",
+    "fs-extra": "^3.0.1",
+    "gulp": "^4.0.2",
+    "gulp-changed": "^4.0.3",
+    "gulp-checktextdomain": "^1.1.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "gulp-wp-pot": "^2.0.6",
+    "mini-css-extract-plugin": "^2.9.2",
+    "postcss": "^8.5.6",
+    "postcss-loader": "^7.3.4",
+    "sass": "^1.89.2",
+    "style-loader": "^4.0.0",
+    "tinycolor2": "^1.6.0",
+    "zip-a-folder": "^3.1.9"
+  },
+  "dependencies": {
+    "@wordpress/scripts": "^30.20.0",
+    "fuse.js": "^7.1.0",
+    "gsap": "^3.13.0",
+    "lodash": "^4.17.21",
+    "react-select": "^5.10.1",
+    "react-window": "^1.8.11"
+  }
+}

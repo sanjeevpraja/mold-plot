@@ -1,0 +1,93 @@
+// Required at the top of your file
+@use "sass:map";
+@use "sass:list";
+
+// Breakpoint variables
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+// Media query mixin for min-width (breakpoint-up)
+@mixin media-breakpoint-up($name) {
+  $min: map.get($breakpoints, $name);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Media query mixin for max-width (breakpoint-down)
+@mixin media-breakpoint-down($name) {
+  $breakpoint-names: map.keys($breakpoints);
+  $n: list.index($breakpoint-names, $name);
+  $next: if($n < list.length($breakpoint-names), list.nth($breakpoint-names, $n + 1), null);
+  
+  @if $next {
+    $max: map.get($breakpoints, $next) - 0.02px;
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Media query mixin for single breakpoint range
+@mixin media-breakpoint-only($name) {
+  $breakpoint-names: map.keys($breakpoints);
+  $n: list.index($breakpoint-names, $name);
+  $next: if($n < list.length($breakpoint-names), list.nth($breakpoint-names, $n + 1), null);
+  
+  $min: map.get($breakpoints, $name);
+  @if $next {
+    $max: map.get($breakpoints, $next) - 0.02px;
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @include media-breakpoint-up($name) {
+      @content;
+    }
+  }
+}
+
+// Media query mixin for custom range
+@mixin media-breakpoint-between($lower, $upper) {
+  $min: map.get($breakpoints, $lower);
+  $max: map.get($breakpoints, $upper) - 0.02px;
+  
+  @media (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
+
+
+/* Responsive hide classes for block setting*/
+/* Hide on desktop: screens wider than 1024px */
+@media (min-width: 1025px) {
+  .hide-on-desktop {
+    display: none !important;
+  }
+}
+
+/* Hide on tablet: screens between 768px and 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hide-on-tablet {
+    display: none !important;
+  }
+}
+
+/* Hide on mobile: screens smaller than 768px */
+@media (max-width: 767px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+}

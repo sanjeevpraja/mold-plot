@@ -1,0 +1,16 @@
+$head-font: sans-serif;
+$body-font: sans-serif;
+
+
+$nav-font: $head-font;	
+
+$font-size-base: 14px;
+
+
+//based on https://type-scale.com/ 1.414 ratio
+$font-size-h1:    3.998rem;
+$font-size-h2:    2.827rem;
+$font-size-h3:    1.999rem;
+$font-size-h4:    1.414rem;
+$font-size-h5:    1.2rem;
+$font-size-h6:    $font-size-base;

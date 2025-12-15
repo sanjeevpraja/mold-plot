@@ -1,0 +1,14 @@
+.mold-color-control {
+    display: flex;
+    align-items: center;
+    &__button {
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        border: 1px solid #ddd;
+        border-radius: 30px;
+    }
+}
+.mold-color-control__popover{
+    z-index: 1000;
+}

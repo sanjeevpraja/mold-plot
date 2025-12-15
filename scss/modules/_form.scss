@@ -1,0 +1,148 @@
+// Variables
+$input-padding-y: 8px;
+$input-padding-x: 12px;
+$input-font-size: 14px;
+$input-line-height: 1.5;
+$input-color: #495057;
+$input-bg: #fff;
+$input-border-color: #ced4da;
+$input-border-radius: 4px;
+$input-focus-border-color: #80bdff;
+$input-focus-box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+$input-disabled-bg: #e9ecef;
+$input-placeholder-color: #6c757d;
+
+// Base form control styles
+.wpcf7-form{
+input[type="submit"],
+input[type="button"]{
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 15px 30px;
+  border: 0px;
+  border-radius: 10px;
+  background: var(--wp--preset--color--primary);
+  color: var(--wp--preset--color--primary-contrast);
+}
+}
+
+.form-control,
+.wpcf7-form-control:not([type="submit"]):not([type="button"]) {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: $input-padding-y $input-padding-x;
+  font-size: $input-font-size;
+  line-height: $input-line-height;
+  color: $input-color;
+  background-color: $input-bg;
+  border: 1px solid $input-border-color;
+  border-radius: $input-border-radius;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:focus {
+    color: $input-color;
+    background-color: $input-bg;
+    border-color: $input-focus-border-color;
+    outline: 0;
+    box-shadow: $input-focus-box-shadow;
+  }
+
+  &:disabled {
+    background-color: $input-disabled-bg;
+    opacity: 1;
+  }
+
+  &::placeholder {
+    color: $input-placeholder-color;
+    opacity: 1;
+  }
+}
+
+// Select dropdown
+.form-select {
+  @extend .form-control;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px 12px;
+  padding-right: 40px;
+  
+  &:focus {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
+  }
+}
+
+// Textarea
+.form-textarea {
+  @extend .form-control;
+  min-height: 80px;
+  resize: vertical;
+}
+
+// Checkbox and Radio base styles
+.form-check {
+  display: block;
+  min-height: 24px;
+  padding-left: 24px;
+  margin-bottom: 8px;
+  
+  .form-check-input {
+    position: absolute;
+    margin-left: -24px;
+    margin-top: 4px;
+    width: 16px;
+    height: 16px;
+    border: 1px solid $input-border-color;
+    background-color: $input-bg;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    
+    &:focus {
+      border-color: $input-focus-border-color;
+      outline: 0;
+      box-shadow: $input-focus-box-shadow;
+    }
+    
+    &:checked {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+    
+    &:disabled {
+      background-color: $input-disabled-bg;
+      border-color: $input-border-color;
+      opacity: 0.5;
+    }
+  }
+  
+  .form-check-label {
+    color: $input-color;
+    font-size: $input-font-size;
+    line-height: $input-line-height;
+    cursor: pointer;
+  }
+}
+
+// Checkbox specific
+.form-check-input[type="checkbox"] {
+  border-radius: 4px;
+  
+  &:checked {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 12px 12px;
+  }
+}
+
+// Radio specific
+.form-check-input[type="radio"] {
+  border-radius: 50%;
+  
+  &:checked {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='2' fill='%23fff'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 8px 8px;
+  }
+}

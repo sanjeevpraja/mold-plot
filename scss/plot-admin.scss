@@ -1,0 +1,192 @@
+$baseurl: '../img';
+@use 'variables/_color' as *;
+
+
+input.full-width {
+	width: 100% !important;
+	float: none !important;
+}
+
+
+.meta-box {
+	input[type="text"],
+	input[type="email"],
+	input[type="number"],
+	textarea {
+		width: 100%;
+	}
+}
+
+.meta-team {
+	label {
+		.fa {
+			$height: 20px;
+			height: $height;
+			width: $height;
+			line-height: $height;
+			text-align: center;
+		}
+	}
+
+	input[type=text] {
+		width: 220px;
+	}
+}
+
+
+.menu-item-bar .menu-item-handle {
+	width: 450px;
+}
+
+.menu-item-handle .item-title {
+	margin-right: 10em;
+}
+
+/*pop up*/
+
+#TB_ajaxContent {
+	height: auto !important;
+	width: auto !important;
+}
+
+#TB_window {
+	z-index: 9999999 !important
+}
+
+
+
+.admin-panel {
+	margin: 15px 0;
+
+	.admin-panel-wrap {
+		border: 1px solid #ddd;
+		margin-bottom: 15px;
+
+		.admin-panel-head {
+			border-bottom: 1px solid #ddd;
+			padding: 5px 15px;
+
+			.dashicons {
+				float: right;
+			}
+
+			.dashicons-arrow-up-alt2 {
+				display: none;
+			}
+		}
+
+		.admin-panel-body {
+			padding: 15px;
+			display: none;
+		}
+
+		&.show {
+			.admin-panel-head {
+				.dashicons-arrow-down-alt2 {
+					display: none;
+				}
+
+				.dashicons-arrow-up-alt2 {
+					display: block;
+				}
+			}
+
+			.admin-panel-body {
+				display: block;
+			}
+		}
+	}
+
+	.form-wrap {
+		margin-bottom: 10px;
+	}
+}
+
+.insert-btn {
+	$bg-color: #0073aa;
+	margin-top: 10px;
+	height: 32px;
+	line-height: 32px;
+	padding: 0px 15px;
+	background: $bg-color;
+	border: 1px solid $bg-color;
+	color: #fff;
+	border-radius: 3px;
+}
+
+
+/* product admin */
+.column-taxonomy-grade {
+	width: 12%;
+}
+
+.column-taxonomy-location {
+	width: 15%;
+}
+
+
+.mold-modal {
+	display: none;
+	position: fixed;
+	z-index: 10000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background: rgba(0, 0, 0, 0.5);
+
+	.mold-modal-content {
+		background: white;
+		margin: 10% auto;
+		padding: 20px;
+		width: 600px;
+		max-height: 60vh;
+		border-radius: 6px;
+		position: relative;
+		overflow-y: auto;
+
+		.search-input {
+			float: none;
+		}
+
+		.close-modal {
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			font-size: 24px;
+			cursor: pointer;
+		}
+	}
+}
+
+
+
+
+
+
+/******************/
+
+/* Block editor specific styles */
+.block-editor-page .mold-grade-option {
+	border-color: #8c8f94;
+}
+
+.block-editor-page .mold-grade-option:hover {
+	background-color: #f0f0f0;
+	border-color: #007cba;
+}
+
+/* Term list table styles */
+.wp-list-table .column-grade_icon,
+.wp-list-table .column-grade_image {
+	width: 100px;
+	text-align: center;
+}
+
+/* this is for cb feature star on tour list */
+.wp-list-table{
+ .column-featured{
+	width: 10px;
+ }
+}

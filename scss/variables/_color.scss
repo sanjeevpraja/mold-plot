@@ -1,0 +1,75 @@
+@use 'sass:color';
+// Color Scheme
+
+// === Base Palette ===
+$primary-color: #888;  // Original: #c38a00;
+$base-color:    #111111;
+$gray-color:    #666666;  // Bootstrap gray reference
+$body-bg:       #fff;  // Original: #F1F2F8
+
+$white: #fff;
+$black: #000;
+
+$success-color: #5cb85c;
+$info-color:    #5bc0de;
+$warning-color: #f0ad4e;
+$danger-color:  #d9534f;
+
+
+// === Primary Shades ===
+$primary-50:  color.mix(white, $primary-color, 37%);
+$primary-100: color.mix(white, $primary-color, 28%);
+$primary-200: color.mix(white, $primary-color, 20%);
+$primary-300: color.mix(white, $primary-color, 12%);
+$primary-400: color.mix(white, $primary-color, 6%);
+$primary-500: $primary-color;
+$primary-600: color.mix(black, $primary-color, 6%);
+$primary-700: color.mix(black, $primary-color, 12%);
+$primary-800: color.mix(black, $primary-color, 18%);
+$primary-900: color.mix(black, $primary-color, 24%);
+
+$primary-hover: $primary-600;
+$primary-contrast: contrast($primary-color); // Optional: define fallback colors
+
+
+// === Base Shades ===
+$base-50:  color.mix(white, $base-color, 37%);
+$base-100: color.mix(white, $base-color, 28%);
+$base-200: color.mix(white, $base-color, 20%);
+$base-300: color.mix(white, $base-color, 12%);
+$base-400: color.mix(white, $base-color, 6%);
+$base-500: $base-color;
+$base-600: color.mix(black, $base-color, 6%);
+$base-700: color.mix(black, $base-color, 12%);
+$base-800: color.mix(black, $base-color, 18%);
+$base-900: color.mix(black, $base-color, 24%);
+
+$base-contrast: contrast($base-color, #222, #fff);
+
+
+// === Gray Shades (Bootstrap style reference) ===
+$gray-50:  color.mix(white, $gray-color, 37%); // ~@gray-lighter
+$gray-100: color.mix(white, $gray-color, 28%);
+$gray-200: color.mix(white, $gray-color, 20%);
+$gray-300: color.mix(white, $gray-color, 12%); // ~@gray-light
+$gray-400: color.mix(white, $gray-color, 6%);
+$gray-500: $gray-color;
+$gray-600: color.mix(black, $gray-color, 6%);
+$gray-700: color.mix(black, $gray-color, 12%); // ~@gray-dark
+$gray-800: color.mix(black, $gray-color, 28%);
+$gray-900: color.mix(black, $gray-color, 42%); // ~@gray-darker
+
+
+// === Font Shades (based on dark gray) ===
+$font-color: $gray-900;
+
+$font-50:  color.mix(white, $font-color, 37%);
+$font-100: color.mix(white, $font-color, 28%);
+$font-200: color.mix(white, $font-color, 20%);
+$font-300: color.mix(white, $font-color, 12%);
+$font-400: color.mix(white, $font-color, 6%);
+$font-500: $font-color;
+$font-600: color.mix(black, $font-color, 6%);
+$font-700: color.mix(black, $font-color, 12%);
+$font-800: color.mix(black, $font-color, 18%);
+$font-900: color.mix(black, $font-color, 24%);

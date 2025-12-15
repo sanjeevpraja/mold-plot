@@ -1,0 +1,10 @@
+*.psd
+node_modules
+sftp-config.json
+.idea
+.phpintel
+*.mo
+*.po
+.DS_store
+build
+dist

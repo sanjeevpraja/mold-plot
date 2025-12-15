@@ -1,0 +1,782 @@
+# Copyright (C) 2025 Mold Tour
+# This file is distributed under the same license as the Mold Tour package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Mold Tour\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: cpt-accomodation/cpt-accomodation.php:11
+msgctxt "Post Type General Name"
+msgid "Accomodations"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:12
+msgctxt "Post Type Singular Name"
+msgid "Accomodation"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:13
+msgid "Accomodations"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:14, cpt-accomodation/cpt-accomodation.php:41, cpt-tour/taxonomy/class-accomodation-taxonomy.php:52
+msgid "Accomodation"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:15
+msgid "Accomodation Archives"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:16
+msgid "Accomodation Attributes"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:17
+msgid "Parent Accomodation:"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:18, cpt-tour/taxonomy/class-accomodation-taxonomy.php:43
+msgid "All Accomodations"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:19, cpt-tour/taxonomy/class-accomodation-taxonomy.php:48
+msgid "Add New Accomodation"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:20, cpt-member/cpt-member.php:20, cpt-tour/cpt-tour.php:18
+msgid "Add New"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:21
+msgid "New Accomodation"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:22, cpt-tour/taxonomy/class-accomodation-taxonomy.php:46
+msgid "Edit Accomodation"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:23, cpt-tour/taxonomy/class-accomodation-taxonomy.php:47
+msgid "Update Accomodation"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:24
+msgid "View Accomodation"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:25
+msgid "View Accomodations"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:26
+msgid "Search Accomodation"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:27, cpt-member/cpt-member.php:27, cpt-tour/cpt-tour.php:25
+msgid "Not found"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:28, cpt-member/cpt-member.php:28, cpt-tour/cpt-tour.php:26
+msgid "Not found in Trash"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:29, cpt-member/cpt-member.php:29, cpt-tour/cpt-tour.php:27
+msgid "Featured Image"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:30, cpt-member/cpt-member.php:30, cpt-tour/cpt-tour.php:28
+msgid "Set featured image"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:31, cpt-member/cpt-member.php:31, cpt-tour/cpt-tour.php:29
+msgid "Remove featured image"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:32, cpt-member/cpt-member.php:32, cpt-tour/cpt-tour.php:30
+msgid "Use as featured image"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:33
+msgid "Insert into accomodation"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:34
+msgid "Uploaded to this accomodation"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:35
+msgid "Accomodations list"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:36
+msgid "Accomodations list navigation"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:37
+msgid "Filter accomodations list"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:42
+msgid "Accomodation information"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:70
+msgid "Accomodation Details"
+msgstr ""
+
+#: cpt-accomodation/cpt-accomodation.php:91, cpt-accomodation/cpt-accomodation.php:143, cpt-accomodation/cpt-accomodation.php:204, cpt-tour/taxonomy/class-location-taxonomy.php:52, cpt-tour/widget/searc-tour-widget.php:48
+msgid "Location"
+msgstr ""
+
+#: cpt-member/cpt-member.php:11
+msgctxt "Post Type General Name"
+msgid "Members"
+msgstr ""
+
+#: cpt-member/cpt-member.php:12
+msgctxt "Post Type Singular Name"
+msgid "Member"
+msgstr ""
+
+#: cpt-member/cpt-member.php:13
+msgid "Members"
+msgstr ""
+
+#: cpt-member/cpt-member.php:14, cpt-member/cpt-member.php:41
+msgid "Member"
+msgstr ""
+
+#: cpt-member/cpt-member.php:15
+msgid "Member Archives"
+msgstr ""
+
+#: cpt-member/cpt-member.php:16
+msgid "Member Attributes"
+msgstr ""
+
+#: cpt-member/cpt-member.php:17
+msgid "Parent Member:"
+msgstr ""
+
+#: cpt-member/cpt-member.php:18
+msgid "All Members"
+msgstr ""
+
+#: cpt-member/cpt-member.php:19
+msgid "Add New Member"
+msgstr ""
+
+#: cpt-member/cpt-member.php:21
+msgid "New Member"
+msgstr ""
+
+#: cpt-member/cpt-member.php:22
+msgid "Edit Member"
+msgstr ""
+
+#: cpt-member/cpt-member.php:23
+msgid "Update Member"
+msgstr ""
+
+#: cpt-member/cpt-member.php:24
+msgid "View Member"
+msgstr ""
+
+#: cpt-member/cpt-member.php:25
+msgid "View Members"
+msgstr ""
+
+#: cpt-member/cpt-member.php:26
+msgid "Search Member"
+msgstr ""
+
+#: cpt-member/cpt-member.php:33
+msgid "Insert into member"
+msgstr ""
+
+#: cpt-member/cpt-member.php:34
+msgid "Uploaded to this member"
+msgstr ""
+
+#: cpt-member/cpt-member.php:35
+msgid "Members list"
+msgstr ""
+
+#: cpt-member/cpt-member.php:36
+msgid "Members list navigation"
+msgstr ""
+
+#: cpt-member/cpt-member.php:37
+msgid "Filter members list"
+msgstr ""
+
+#: cpt-member/cpt-member.php:42
+msgid "Member information"
+msgstr ""
+
+#: cpt-member/cpt-member.php:70
+msgid "Member Details"
+msgstr ""
+
+#: cpt-member/cpt-member.php:104, cpt-member/cpt-member.php:301
+msgid "Designation"
+msgstr ""
+
+#: cpt-member/cpt-member.php:108, cpt-member/cpt-member.php:302
+msgid "Gender"
+msgstr ""
+
+#: cpt-member/cpt-member.php:111
+msgid "Select Gender"
+msgstr ""
+
+#: cpt-member/cpt-member.php:112
+msgid "Male"
+msgstr ""
+
+#: cpt-member/cpt-member.php:113
+msgid "Female"
+msgstr ""
+
+#: cpt-member/cpt-member.php:114
+msgid "Other"
+msgstr ""
+
+#: cpt-member/cpt-member.php:119, cpt-member/cpt-member.php:228, cpt-member/cpt-member.php:303
+msgid "University"
+msgstr ""
+
+#: cpt-member/cpt-member.php:123, cpt-member/cpt-member.php:304
+msgid "Campus/Department"
+msgstr ""
+
+#: cpt-member/cpt-member.php:127, cpt-member/cpt-member.php:305
+msgid "Academic Degree"
+msgstr ""
+
+#: cpt-member/cpt-member.php:131, cpt-member/cpt-member.php:306
+msgid "Completed Year"
+msgstr ""
+
+#: cpt-member/cpt-member.php:135, cpt-member/cpt-member.php:307
+msgid "Thesis Title"
+msgstr ""
+
+#: cpt-member/cpt-member.php:139, cpt-member/cpt-member.php:308
+msgid "Supervisor"
+msgstr ""
+
+#: cpt-member/cpt-member.php:143, cpt-member/cpt-member.php:309
+msgid "Phone"
+msgstr ""
+
+#: cpt-member/cpt-member.php:147, cpt-member/cpt-member.php:230, cpt-member/cpt-member.php:310
+msgid "Email"
+msgstr ""
+
+#: cpt-member/cpt-member.php:151, cpt-member/cpt-member.php:311
+msgid "Website"
+msgstr ""
+
+#: cpt-member/cpt-member.php:155, cpt-member/cpt-member.php:312
+msgid "LinkedIn"
+msgstr ""
+
+#: cpt-member/cpt-member.php:159, cpt-member/cpt-member.php:313
+msgid "Twitter"
+msgstr ""
+
+#: cpt-member/cpt-member.php:163, cpt-member/cpt-member.php:314
+msgid "Facebook"
+msgstr ""
+
+#: cpt-member/cpt-member.php:229
+msgid "Degree"
+msgstr ""
+
+#: cpt-tour/cpm-fields.php:7
+msgid "Tour Details"
+msgstr ""
+
+#: cpt-tour/cpm-fields.php:33, cpt-tour/cpm-fields.php:105, cpt-tour/cpm-fields.php:172
+msgid "Days"
+msgstr ""
+
+#: cpt-tour/cpm-fields.php:37, cpt-tour/cpm-fields.php:106, cpt-tour/cpm-fields.php:173
+msgid "Nights"
+msgstr ""
+
+#: cpt-tour/cpm-fields.php:41, cpt-tour/cpm-fields.php:107, cpt-tour/cpm-fields.php:174
+msgid "Price"
+msgstr ""
+
+#: cpt-tour/cpm-fields.php:45, cpt-tour/cpm-fields.php:108
+msgid "Original Price"
+msgstr ""
+
+#: cpt-tour/cpm-fields.php:189
+msgid "Unmark as featured"
+msgstr ""
+
+#: cpt-tour/cpm-fields.php:189
+msgid "Mark as featured"
+msgstr ""
+
+#: cpt-tour/cpt-gallery.php:7
+msgid "Tour Gallery"
+msgstr ""
+
+#: cpt-tour/cpt-gallery.php:29
+msgid "Remove image"
+msgstr ""
+
+#: cpt-tour/cpt-gallery.php:39
+msgid "Add gallery images"
+msgstr ""
+
+#: cpt-tour/cpt-gallery.php:54
+msgid "Slider Overlay"
+msgstr ""
+
+#: cpt-tour/cpt-gallery.php:57
+msgid "Overlay"
+msgstr ""
+
+#: cpt-tour/cpt-gallery.php:58
+msgid "Boxed"
+msgstr ""
+
+#: cpt-tour/cpt-gallery.php:59
+msgid "Transparent"
+msgstr ""
+
+#: cpt-tour/cpt-gallery.php:63
+msgid "Slider Effect"
+msgstr ""
+
+#: cpt-tour/cpt-gallery.php:66
+msgid "Fade"
+msgstr ""
+
+#: cpt-tour/cpt-gallery.php:67
+msgid "Slide"
+msgstr ""
+
+#: cpt-tour/cpt-gallery.php:71
+msgid "Slider height"
+msgstr ""
+
+#: cpt-tour/cpt-gallery.php:74, cpt-tour/cpt-gallery.php:82, cpt-tour/cpt-gallery.php:93
+msgid "Default"
+msgstr ""
+
+#: cpt-tour/cpt-gallery.php:75
+msgid "Full Height"
+msgstr ""
+
+#: cpt-tour/cpt-gallery.php:79
+msgid "Slider Nav Control Position"
+msgstr ""
+
+#: cpt-tour/cpt-gallery.php:83
+msgid "Bottom"
+msgstr ""
+
+#: cpt-tour/cpt-gallery.php:84
+msgid "Bottom Right"
+msgstr ""
+
+#: cpt-tour/cpt-gallery.php:85
+msgid "Bottom Left"
+msgstr ""
+
+#: cpt-tour/cpt-gallery.php:86, cpt-tour/cpt-gallery.php:96
+msgid "Hide"
+msgstr ""
+
+#: cpt-tour/cpt-gallery.php:90
+msgid "Slider Indicator"
+msgstr ""
+
+#: cpt-tour/cpt-gallery.php:94
+msgid "Square"
+msgstr ""
+
+#: cpt-tour/cpt-gallery.php:95
+msgid "Dashed"
+msgstr ""
+
+#: cpt-tour/cpt-gallery.php:100
+msgid "Slider Speed"
+msgstr ""
+
+#: cpt-tour/cpt-gallery.php:121
+msgid "Add Images to Tour Gallery"
+msgstr ""
+
+#: cpt-tour/cpt-gallery.php:122
+msgid "Add to gallery"
+msgstr ""
+
+#: cpt-tour/cpt-tour.php:9
+msgctxt "Post Type General Name"
+msgid "Tours"
+msgstr ""
+
+#: cpt-tour/cpt-tour.php:10
+msgctxt "Post Type Singular Name"
+msgid "Tour"
+msgstr ""
+
+#: cpt-tour/cpt-tour.php:11
+msgid "Tours"
+msgstr ""
+
+#: cpt-tour/cpt-tour.php:12, cpt-tour/cpt-tour.php:39
+msgid "Tour"
+msgstr ""
+
+#: cpt-tour/cpt-tour.php:13
+msgid "Tour Archives"
+msgstr ""
+
+#: cpt-tour/cpt-tour.php:14
+msgid "Tour Attributes"
+msgstr ""
+
+#: cpt-tour/cpt-tour.php:15
+msgid "Parent Tour:"
+msgstr ""
+
+#: cpt-tour/cpt-tour.php:16
+msgid "All Tours"
+msgstr ""
+
+#: cpt-tour/cpt-tour.php:17
+msgid "Add New Tour"
+msgstr ""
+
+#: cpt-tour/cpt-tour.php:19
+msgid "New Tour"
+msgstr ""
+
+#: cpt-tour/cpt-tour.php:20
+msgid "Edit Tour"
+msgstr ""
+
+#: cpt-tour/cpt-tour.php:21
+msgid "Update Tour"
+msgstr ""
+
+#: cpt-tour/cpt-tour.php:22
+msgid "View Tour"
+msgstr ""
+
+#: cpt-tour/cpt-tour.php:23
+msgid "View Tours"
+msgstr ""
+
+#: cpt-tour/cpt-tour.php:24
+msgid "Search Tour"
+msgstr ""
+
+#: cpt-tour/cpt-tour.php:31
+msgid "Insert into tour"
+msgstr ""
+
+#: cpt-tour/cpt-tour.php:32
+msgid "Uploaded to this tour"
+msgstr ""
+
+#: cpt-tour/cpt-tour.php:33
+msgid "Tours list"
+msgstr ""
+
+#: cpt-tour/cpt-tour.php:34
+msgid "Tours list navigation"
+msgstr ""
+
+#: cpt-tour/cpt-tour.php:35
+msgid "Filter tours list"
+msgstr ""
+
+#: cpt-tour/cpt-tour.php:40
+msgid "Tour information"
+msgstr ""
+
+#: cpt-tour/tour-setting.php:8, cpt-tour/tour-setting.php:21
+msgid "Tour Settings"
+msgstr ""
+
+#: cpt-tour/tour-setting.php:9
+msgid "Settings"
+msgstr ""
+
+#: cpt-tour/tour-setting.php:55
+msgid "Currency"
+msgstr ""
+
+#: cpt-tour/tour-setting.php:173
+msgid "Thousand Separator"
+msgstr ""
+
+#: cpt-tour/tour-setting.php:177
+msgid "Character used to separate thousands (e.g., 1,000 or 1.000)."
+msgstr ""
+
+#: cpt-tour/tour-setting.php:185
+msgid "Decimal Separator"
+msgstr ""
+
+#: cpt-tour/tour-setting.php:189
+msgid "Character used for decimals (e.g., 1.50 or 1,50)."
+msgstr ""
+
+#: cpt-tour/tour-setting.php:197
+msgid "Number of Decimals"
+msgstr ""
+
+#: cpt-tour/tour-setting.php:201
+msgid "Number of digits to display after the decimal point (e.g., 2 for 1.50)."
+msgstr ""
+
+#: inc/block-member-meta.php:14, inc/block-tour-meta.php:19
+msgid "No post found"
+msgstr ""
+
+#: inc/block-member-meta.php:87
+msgid "Meta key:"
+msgstr ""
+
+#: inc/block-tour-meta.php:24
+msgid "Not a tour post"
+msgstr ""
+
+#: inc/block-tour-meta.php:64
+msgid "Day"
+msgstr ""
+
+#: inc/block-tour-meta.php:71
+msgid "Night"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-accomodation-taxonomy.php:39
+msgctxt "Taxonomy Accomodations"
+msgid "Accomodations"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-accomodation-taxonomy.php:40
+msgctxt "Taxonomy Accomodation"
+msgid "Accomodation"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-accomodation-taxonomy.php:41
+msgid "Search Accomodations"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-accomodation-taxonomy.php:42
+msgid "Popular Accomodations"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-accomodation-taxonomy.php:44, cpt-tour/taxonomy/class-accomodation-taxonomy.php:45
+msgid "Parent Accomodation"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-accomodation-taxonomy.php:49
+msgid "New Accomodation Name"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-accomodation-taxonomy.php:50
+msgid "Add or remove Accomodations"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-accomodation-taxonomy.php:51
+msgid "Choose from most used Accomodation"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-accomodation-taxonomy.php:88, cpt-tour/taxonomy/class-accomodation-taxonomy.php:119, cpt-tour/taxonomy/class-accomodation-taxonomy.php:385, cpt-tour/taxonomy/class-grade-taxonomy.php:234, cpt-tour/taxonomy/class-grade-taxonomy.php:263, cpt-tour/taxonomy/class-grade-taxonomy.php:379, cpt-tour/taxonomy/class-location-taxonomy.php:88, cpt-tour/taxonomy/class-location-taxonomy.php:119, cpt-tour/taxonomy/class-location-taxonomy.php:385
+msgid "Image"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-accomodation-taxonomy.php:92, cpt-tour/taxonomy/class-accomodation-taxonomy.php:130, cpt-tour/taxonomy/class-accomodation-taxonomy.php:169, cpt-tour/taxonomy/class-accomodation-taxonomy.php:207, cpt-tour/taxonomy/class-grade-taxonomy.php:238, cpt-tour/taxonomy/class-grade-taxonomy.php:274, cpt-tour/taxonomy/class-location-taxonomy.php:92, cpt-tour/taxonomy/class-location-taxonomy.php:130, cpt-tour/taxonomy/class-location-taxonomy.php:169, cpt-tour/taxonomy/class-location-taxonomy.php:207
+msgid "Add Image"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-accomodation-taxonomy.php:93, cpt-tour/taxonomy/class-accomodation-taxonomy.php:131, cpt-tour/taxonomy/class-accomodation-taxonomy.php:170, cpt-tour/taxonomy/class-accomodation-taxonomy.php:208, cpt-tour/taxonomy/class-grade-taxonomy.php:239, cpt-tour/taxonomy/class-grade-taxonomy.php:275, cpt-tour/taxonomy/class-location-taxonomy.php:93, cpt-tour/taxonomy/class-location-taxonomy.php:131, cpt-tour/taxonomy/class-location-taxonomy.php:170, cpt-tour/taxonomy/class-location-taxonomy.php:208
+msgid "Remove Image"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-accomodation-taxonomy.php:165, cpt-tour/taxonomy/class-accomodation-taxonomy.php:196, cpt-tour/taxonomy/class-accomodation-taxonomy.php:386, cpt-tour/taxonomy/class-location-taxonomy.php:165, cpt-tour/taxonomy/class-location-taxonomy.php:196, cpt-tour/taxonomy/class-location-taxonomy.php:386
+msgid "Map"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-grade-taxonomy.php:84
+msgctxt "Taxonomy Grades"
+msgid "Grades"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-grade-taxonomy.php:85
+msgctxt "Taxonomy Grade"
+msgid "Grade"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-grade-taxonomy.php:86
+msgid "Search Grades"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-grade-taxonomy.php:87
+msgid "Popular Grades"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-grade-taxonomy.php:88
+msgid "All Grades"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-grade-taxonomy.php:89, cpt-tour/taxonomy/class-grade-taxonomy.php:90
+msgid "Parent Grade"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-grade-taxonomy.php:91
+msgid "Edit Grade"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-grade-taxonomy.php:92
+msgid "Update Grade"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-grade-taxonomy.php:93
+msgid "Add New Grade"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-grade-taxonomy.php:94
+msgid "New Grade Name"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-grade-taxonomy.php:95
+msgid "Add or remove Grades"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-grade-taxonomy.php:96
+msgid "Choose from most used Grade"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-grade-taxonomy.php:97, cpt-tour/widget/searc-tour-widget.php:71
+msgid "Grade"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-grade-taxonomy.php:134
+msgid "Tour Grade"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-grade-taxonomy.php:175
+msgid "No grades found. Please add some grades first."
+msgstr ""
+
+#: cpt-tour/taxonomy/class-grade-taxonomy.php:179
+msgid "Select the difficulty grade for this tour"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-location-taxonomy.php:39
+msgctxt "Taxonomy Locations"
+msgid "Locations"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-location-taxonomy.php:40
+msgctxt "Taxonomy Location"
+msgid "Location"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-location-taxonomy.php:41
+msgid "Search Locations"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-location-taxonomy.php:42
+msgid "Popular Locations"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-location-taxonomy.php:43
+msgid "All Locations"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-location-taxonomy.php:44, cpt-tour/taxonomy/class-location-taxonomy.php:45
+msgid "Parent Location"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-location-taxonomy.php:46
+msgid "Edit Location"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-location-taxonomy.php:47
+msgid "Update Location"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-location-taxonomy.php:48
+msgid "Add New Location"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-location-taxonomy.php:49
+msgid "New Location Name"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-location-taxonomy.php:50
+msgid "Add or remove Locations"
+msgstr ""
+
+#: cpt-tour/taxonomy/class-location-taxonomy.php:51
+msgid "Choose from most used Location"
+msgstr ""
+
+#: cpt-tour/widget/grade-widget.php:21
+msgid "Mold Trip Grade"
+msgstr ""
+
+#: cpt-tour/widget/grade-widget.php:24
+msgid "Filter grade"
+msgstr ""
+
+#: cpt-tour/widget/grade-widget.php:66, cpt-tour/widget/location-widget.php:61, cpt-tour/widget/searc-tour-widget.php:132
+msgid "New title"
+msgstr ""
+
+#: cpt-tour/widget/grade-widget.php:71, cpt-tour/widget/location-widget.php:66, cpt-tour/widget/searc-tour-widget.php:136
+msgid "Title:"
+msgstr ""
+
+#: cpt-tour/widget/location-widget.php:20
+msgid "Mold Trip Location"
+msgstr ""
+
+#: cpt-tour/widget/location-widget.php:22
+msgid "Filter location"
+msgstr ""
+
+#: cpt-tour/widget/searc-tour-widget.php:19
+msgid "Mold Trip Search"
+msgstr ""
+
+#: cpt-tour/widget/searc-tour-widget.php:21
+msgid "Search Tour widget"
+msgstr ""
+
+#: cpt-tour/widget/searc-tour-widget.php:44
+msgid "Keyword"
+msgstr ""
+
+#: cpt-tour/widget/searc-tour-widget.php:50
+msgid "All"
+msgstr ""
+
+#: cpt-tour/widget/searc-tour-widget.php:84
+msgid "Price Range"
+msgstr ""
+
+#: cpt-tour/widget/searc-tour-widget.php:93
+msgid "Search"
+msgstr ""

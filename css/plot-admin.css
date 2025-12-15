@@ -1,0 +1,647 @@
+.mold-popup {
+  height: 80% !important;
+  z-index: 999999 !important;
+}
+.mold-popup #TB_ajaxContent {
+  width: auto !important;
+  height: 80% !important;
+  padding-top: 0px !important;
+}
+.mold-popup #TB_title {
+  height: 40px;
+  line-height: 40px;
+}
+.mold-popup #TB_title #TB_ajaxWindowTitle {
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  padding-left: 35px;
+  position: relative;
+}
+.mold-popup #TB_title #TB_ajaxWindowTitle:before {
+  content: "";
+  height: 40px;
+  line-height: 40px;
+  width: 40px;
+  background: url("$baseurl/image.png") no-repeat center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.mold-popup #TB_title .tb-close-icon {
+  top: 5px;
+  right: 5px;
+}
+.mold-popup .icon-select {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.mold-popup .icon-select #search {
+  display: table;
+  margin: 15px auto 0;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #ddd;
+  background: #fff;
+  width: 200px;
+  border-radius: 5px;
+}
+.mold-popup .icon-list-wrap {
+  height: 150px;
+  overflow-y: auto;
+  margin-top: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.mold-popup #icon-list {
+  margin-top: 0px;
+}
+.mold-popup #icon-list li {
+  display: inline-block;
+  font-size: 0;
+  padding: 5px 10px;
+}
+.mold-popup #icon-list li:before {
+  font-size: 30px;
+}
+.mold-popup #icon-list li.active {
+  background: #333;
+  color: #eee;
+}
+.mold-popup .iconfont {
+  font-size: 30px;
+  cursor: pointer;
+}
+.mold-popup .select-form-wrap {
+  margin: 0 -15px;
+  padding: 20px;
+  background: #f2f2f2;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  height: 30px;
+}
+.mold-popup .select-form-wrap label {
+  float: left;
+  font-weight: bold;
+  margin-top: 5px;
+}
+.mold-popup .select-form-wrap select {
+  float: right;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #ccc;
+  background: #dedede;
+  width: 300px;
+  border-radius: 0px;
+}
+.mold-popup .button-wrap {
+  clear: both;
+  padding: 10px 20px;
+  margin: 0px -15px 0px;
+  overflow: hidden;
+}
+.mold-popup .button-wrap .insert-btn {
+  float: right;
+  padding: 8px 15px;
+  text-transform: uppercase;
+  background: #558B2F;
+  color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.mold-popup .button-wrap .insert-btn:hover {
+  background: rgb(119.68, 119.68, 119.68);
+}
+.mold-popup .form-wrap {
+  margin: 0 -15px;
+  padding: 0 20px 10px;
+  font-size: 14px;
+  overflow: hidden;
+}
+.mold-popup .form-wrap label {
+  float: left;
+  font-weight: bold;
+  margin-top: 5px;
+}
+.mold-popup .form-wrap input[type=text] {
+  float: right;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #ddd;
+  background: #fff;
+  width: 300px;
+  border-radius: 5px;
+}
+.mold-popup .form-wrap textarea {
+  float: right;
+  height: 120px;
+  border: 1px solid #ddd;
+  background: #fff;
+  width: 300px;
+  border-radius: 5px;
+}
+.mold-popup .form-wrap select {
+  float: right;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #ddd;
+  background: #eee;
+  width: 300px;
+  border-radius: 0px;
+}
+
+table.admin-table {
+  width: 100%;
+}
+table.admin-table td {
+  vertical-align: top;
+  padding: 15px;
+}
+
+.mold-popup {
+  height: 80% !important;
+  z-index: 999999 !important;
+}
+.mold-popup .icon-select {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.mold-popup .icon-select .search-input {
+  display: table;
+  margin: 15px auto 0;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #ddd;
+  background: #fff;
+  width: 200px;
+  border-radius: 5px;
+}
+.mold-popup .icon-list-wrap {
+  height: 150px;
+  overflow-y: auto;
+  margin-top: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.mold-popup .iconlist {
+  margin-top: 0px;
+}
+.mold-popup .iconlist li {
+  display: inline-block;
+  font-size: 0;
+  padding: 5px 10px;
+}
+.mold-popup .iconlist li:before {
+  font-size: 30px;
+}
+.mold-popup .iconlist li.active {
+  background: #333;
+  color: #eee;
+}
+.mold-popup .iconfont {
+  font-size: 30px;
+  cursor: pointer;
+}
+.mold-popup .select-form-wrap {
+  margin: 0 -15px;
+  padding: 20px;
+  background: #f2f2f2;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  height: 30px;
+}
+.mold-popup .select-form-wrap label {
+  float: left;
+  font-weight: bold;
+  margin-top: 5px;
+}
+.mold-popup .select-form-wrap select {
+  float: right;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #ccc;
+  background: #dedede;
+  width: 300px;
+  border-radius: 0px;
+}
+.mold-popup .button-wrap {
+  clear: both;
+  padding: 10px 20px;
+  margin: 0px -15px 0px;
+  overflow: hidden;
+}
+.mold-popup .button-wrap .insert-btn {
+  float: right;
+  padding: 8px 15px;
+  text-transform: uppercase;
+  background: #558B2F;
+  color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.mold-popup .button-wrap .insert-btn:hover {
+  background: #3e6522;
+}
+.mold-popup .form-wrap {
+  margin: 0 -15px;
+  padding: 0 20px 10px;
+  font-size: 14px;
+  overflow: hidden;
+}
+.mold-popup .form-wrap label {
+  float: left;
+  font-weight: bold;
+  margin-top: 5px;
+}
+.mold-popup .form-wrap input[type=text] {
+  float: right;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #ddd;
+  background: #fff;
+  width: 300px;
+  border-radius: 5px;
+}
+.mold-popup .form-wrap textarea {
+  float: right;
+  height: 120px;
+  border: 1px solid #ddd;
+  background: #fff;
+  width: 300px;
+  border-radius: 5px;
+}
+.mold-popup .form-wrap select {
+  float: right;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #ddd;
+  background: #eee;
+  width: 300px;
+  border-radius: 0px;
+}
+
+.overview-form .form-field,
+.itinerary-form .form-field {
+  background: #f2f2f2;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5px 5px 0;
+  margin-bottom: 15px;
+  position: relative;
+}
+.overview-form .form-field input[type=text],
+.itinerary-form .form-field input[type=text] {
+  height: 36px;
+  width: 200px;
+  margin-right: 10px;
+  margin-bottom: 5px !important;
+  float: none;
+}
+.overview-form .formicon,
+.itinerary-form .formicon {
+  height: 36px;
+  width: 36px;
+  line-height: 31px;
+  font-size: 26px;
+  background: #ddd;
+  text-align: center;
+  float: left;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.overview-form .formicon .icon,
+.itinerary-form .formicon .icon {
+  margin-left: 0px;
+  height: 36px;
+  width: 36px;
+  line-height: 36px;
+  text-align: center;
+  display: inline-block;
+}
+.overview-form .formicon .icon.no-icon,
+.itinerary-form .formicon .icon.no-icon {
+  background: url("../img/add.png") no-repeat center;
+}
+.overview-form .btn-delete,
+.itinerary-form .btn-delete {
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  line-height: 24px;
+  background: url("../img/sub_light.png") no-repeat center #a00;
+  border: 1px solid #a00;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  top: -10px;
+  right: -6px;
+}
+
+.overview-form input[type=text] {
+  width: 180px !important;
+}
+
+.itinerary-form .form-field {
+  padding-bottom: 5px;
+}
+.itinerary-form input[type=text], .itinerary-form textarea {
+  float: none !important;
+}
+.itinerary-form .input-day {
+  margin-left: 40px;
+  width: 50% !important;
+}
+.itinerary-form .input-title {
+  height: 30px !important;
+  width: 100% !important;
+  margin-bottom: 10px !important;
+}
+.itinerary-form .mce-container-body {
+  border-top: 1px solid transparent;
+}
+.itinerary-form .input-desc {
+  width: 100% !important;
+  margin-bottom: 5px !important;
+}
+.itinerary-form .formicon {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.btn-wrap {
+  clear: both;
+}
+
+.ui-dialog-titlebar-close:before {
+  display: none;
+}
+
+input.full-width {
+  width: 100% !important;
+  float: none !important;
+}
+
+#mold_itenary_data .admin-table,
+#mold_cost_book_data .admin-table,
+#mold_overview_data .admin-table {
+  width: 100%;
+}
+
+#mold_itenary_data .admin-table td,
+#mold_cost_book_data .admin-table td,
+#mold_overview_data .admin-table td {
+  vertical-align: top;
+  padding: 10px;
+}
+
+ul.wc-tabs .mold-overview > a::before {
+  content: "\f489" !important;
+}
+
+ul.wc-tabs .mold-itenary > a::before {
+  content: "\f164" !important;
+}
+
+ul.wc-tabs .mold-cost-book > a::before {
+  content: "\f174" !important;
+}
+
+.meta-box input[type=text],
+.meta-box input[type=email],
+.meta-box input[type=number],
+.meta-box textarea {
+  width: 100%;
+}
+
+.meta-team label .fa {
+  height: 20px;
+  width: 20px;
+  line-height: 20px;
+  text-align: center;
+}
+.meta-team input[type=text] {
+  width: 220px;
+}
+
+.menu-item-bar .menu-item-handle {
+  width: 450px;
+}
+
+.menu-item-handle .item-title {
+  margin-right: 10em;
+}
+
+/*pop up*/
+#TB_ajaxContent {
+  height: auto !important;
+  width: auto !important;
+}
+
+#TB_window {
+  z-index: 9999999 !important;
+}
+
+.admin-panel {
+  margin: 15px 0;
+}
+.admin-panel .admin-panel-wrap {
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+}
+.admin-panel .admin-panel-wrap .admin-panel-head {
+  border-bottom: 1px solid #ddd;
+  padding: 5px 15px;
+}
+.admin-panel .admin-panel-wrap .admin-panel-head .dashicons {
+  float: right;
+}
+.admin-panel .admin-panel-wrap .admin-panel-head .dashicons-arrow-up-alt2 {
+  display: none;
+}
+.admin-panel .admin-panel-wrap .admin-panel-body {
+  padding: 15px;
+  display: none;
+}
+.admin-panel .admin-panel-wrap.show .admin-panel-head .dashicons-arrow-down-alt2 {
+  display: none;
+}
+.admin-panel .admin-panel-wrap.show .admin-panel-head .dashicons-arrow-up-alt2 {
+  display: block;
+}
+.admin-panel .admin-panel-wrap.show .admin-panel-body {
+  display: block;
+}
+.admin-panel .form-wrap {
+  margin-bottom: 10px;
+}
+
+.insert-btn {
+  margin-top: 10px;
+  height: 32px;
+  line-height: 32px;
+  padding: 0px 15px;
+  background: #0073aa;
+  border: 1px solid #0073aa;
+  color: #fff;
+  border-radius: 3px;
+}
+
+/* product admin */
+.column-taxonomy-grade {
+  width: 12%;
+}
+
+.column-taxonomy-location {
+  width: 15%;
+}
+
+.mold-modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.5);
+}
+.mold-modal .mold-modal-content {
+  background: white;
+  margin: 10% auto;
+  padding: 20px;
+  width: 600px;
+  max-height: 60vh;
+  border-radius: 6px;
+  position: relative;
+  overflow-y: auto;
+}
+.mold-modal .mold-modal-content .search-input {
+  float: none;
+}
+.mold-modal .mold-modal-content .close-modal {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.iconlist {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.iconlist li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.iconlist li.iconfont:before {
+  font-size: 20px;
+}
+.iconlist li:hover {
+  color: #5bc0de;
+}
+
+/******************/
+#tour_images_container ul.product_images {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+#tour_images_container ul.product_images li.image {
+  position: relative;
+  width: 70px;
+  height: 70px;
+}
+#tour_images_container ul.product_images li.image img {
+  width: 70px;
+  height: 70px;
+  display: block;
+}
+#tour_images_container ul.actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+}
+#tour_images_container ul.product_images li.image:hover ul.actions {
+  display: block;
+}
+#tour_images_container ul.actions a.delete {
+  color: #fff;
+  background: #d63638;
+  padding: 0 5px;
+  border-radius: 50%;
+  text-decoration: none;
+}
+
+.mold-grade-radio-container {
+  margin: 10px 0;
+}
+
+.mold-grade-option {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border: 1px solid #c3c4c7;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mold-grade-option:hover {
+  background-color: #f0f0f1;
+  border-color: #007cba;
+}
+
+.mold-grade-option input[type=radio]:checked + * {
+  font-weight: 600;
+}
+
+.mold-grade-option input[type=radio]:checked ~ .grade-name {
+  font-weight: 600;
+  color: #007cba;
+}
+
+.mold-grade-option:has(input[type=radio]:checked) {
+  background-color: #f0f6fc;
+  border-color: #007cba;
+  box-shadow: 0 0 0 1px #007cba;
+}
+
+.grade-name {
+  margin-left: 5px;
+}
+
+/* Block editor specific styles */
+.block-editor-page .mold-grade-option {
+  border-color: #8c8f94;
+}
+
+.block-editor-page .mold-grade-option:hover {
+  background-color: #f0f0f0;
+  border-color: #007cba;
+}
+
+/* Term list table styles */
+.wp-list-table .column-grade_icon,
+.wp-list-table .column-grade_image {
+  width: 100px;
+  text-align: center;
+}
+
+/* this is for cb feature star on tour list */
+.wp-list-table .column-featured {
+  width: 10px;
+}
+/*# sourceMappingURL=plot-admin.css.map */

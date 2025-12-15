@@ -1,0 +1,118 @@
+@use "../_media-query" as *; 
+
+@include media-breakpoint-down(sm) {
+  .border-sm-0{
+    border: 0 !important;
+  }
+  .border-sm-radius-0{
+    border-radius: 0 !important;
+  }
+  .border-sm-radius-10{
+    border-radius: 10px !important;
+  }
+  .border-sm-radius-20{
+    border-radius: 20px !important;
+  } 
+  .background-sm-transparent{
+    background: transparent !important;
+  }
+  .color-sm-inherit{
+    color: inherit !important;
+  }
+  .padding-sm-0{
+    padding: 0 !important;
+  }
+  .margin-sm-0{
+    margin: 0 !important;
+  }
+  .padding-sm-10{
+    padding: 10px !important;
+  }
+  .margin-sm-10{
+    margin: 10px !important;
+  }
+  .padding-sm-20{
+    padding: 20px !important;
+  }
+  .margin-sm-20{
+    margin: 20px !important;
+  }
+}
+
+@include media-breakpoint-only(md) {
+  .border-md-0{
+    border: 0 !important;
+  }
+  .border-md-radius-0{
+    border-radius: 0 !important;
+  }
+  .border-md-radius-10{
+    border-radius: 10px !important;
+  }
+  .border-md-radius-20{
+    border-radius: 20px !important;
+  }
+  .background-md-transparent{
+    background: transparent !important;
+  }
+  .color-md-inherit{
+    color: inherit !important;
+  }
+  .padding-md-0{
+    padding: 0 !important;
+  }
+  .margin-md-0{
+    margin: 0 !important;
+  }
+  .padding-md-10{
+    padding: 10px !important;
+  }
+  .margin-md-10{
+    margin: 10px !important;
+  }
+  .padding-md-20{
+    padding: 20px !important;
+  }
+  .margin-md-20{
+    margin: 20px !important;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .border-lg-0{
+    border: 0 !important;
+  }
+  .border-lg-radius-0{
+    border-radius: 0 !important;
+  }
+  .border-lg-radius-10{
+    border-radius: 10px !important;
+  }
+  .border-lg-radius-20{
+    border-radius: 20px !important;
+  }
+  .background-lg-transparent{
+    background: transparent !important;
+  }
+  .color-lg-inherit{
+    color: inherit !important;
+  }
+  .padding-lg-0{
+    padding: 0 !important;
+  }
+  .margin-lg-0{
+    margin: 0 !important;
+  }
+  .padding-lg-10{
+    padding: 10px !important;
+  }
+  .margin-lg-10{
+    margin: 10px !important;
+  }
+  .padding-lg-20{
+    padding: 20px !important;
+  }
+  .margin-lg-20{
+    margin: 20px !important;
+  }
+}
