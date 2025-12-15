@@ -1,36 +1,11 @@
 /* Frontend styles */
 @use '../styles/_color';
 
-.wp-mold-plot-meta-info{
-    margin: 0;
-}
-
-.wp-mold-plot-meta{
-    .plot-type {
-        display: flex;
-        align-items: center;
-        margin: 0;
-        &::before {
-            font-family: "Material Symbols Outlined";
-            font-variation-settings:
-            'FILL' 0,
-            'wght' 400,
-            'GRAD' 0,
-            'opsz' 24;
-            font-size: 30px;
-            opacity: .6;
-        }
-        &.plot-type--group {
-            &::before {
-                content: "\e7ef";
-                margin-right: 4px;
-            }
-        }
-        &.plot-type--tailor {
-            &::before {
-                content: "\e87b";
-                margin-right: 4px;
-            }
-        }
-    }
+.mold-plot-map{
+    aspect-ratio: 1192/610;
+    background: var(--bgColor);
+    background-image: var(--bgImage);
+    background-size: cover;
+    background-position: center;
+    position: relative;
 }

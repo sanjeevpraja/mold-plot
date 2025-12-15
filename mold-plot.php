@@ -132,3 +132,48 @@ if (file_exists($plot_cpt_file)) {
 	require_once 'cpt-plot/cpm-fields.php';
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+// AJAX handler for fetching plot data
+add_action('wp_ajax_get_plot_data', 'mold_get_plot_data_callback');
+add_action('wp_ajax_nopriv_get_plot_data', 'mold_get_plot_data_callback');
+
+function mold_get_plot_data_callback() {
+    // Verify nonce for security
+    if (!wp_verify_nonce($_POST['nonce'] ?? '', 'mold_plot_nonce')) {
+        wp_die('Security check failed', 403);
+    }
+
+    $plot_id = isset($_POST['plot_id']) ? intval($_POST['plot_id']) : 0;
+
+    if (!$plot_id) {
+        wp_send_json_error('Invalid plot ID');
+    }
+
+    // Get the post
+    $post = get_post($plot_id);
+
+    if (!$post || $post->post_type !== 'plot') {
+        wp_send_json_error('Plot not found');
+    }
+
+    // Prepare response
+    $response = array(
+        'title'     => get_the_title($post),
+        'content'   => apply_filters('the_content', $post->post_content),
+        'image'     => get_the_post_thumbnail_url($post, 'large'),
+        'excerpt'   => get_the_excerpt($post),
+    );
+
+    wp_send_json_success($response);
+}

@@ -1,36 +1,157 @@
 /* Frontend styles */
 @use '../styles/_color';
 
-.wp-mold-plot-meta-info{
-    margin: 0;
+.plot-item{
+    position: absolute;
+    top: var(--y-value);
+    left: var(--x-value);
+    .plot-item-info{
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    width: 120px;
+    margin-left: -65px;
+    padding: 5px;
+    background: #ffffff;
+    border-radius: 4px;
+        &:before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      margin-left: -8px;
+      border-width: 8px 8px 0;
+      border-color: rgba(255, 255, 255, 1) transparent;
+    }
+    .plot-id{
+        display: none;
+    }
+    .plot-description{
+        font-size: 10px;
+        font-weight: 300;
+        text-align: center;
+    }
+    }
 }
 
-.wp-mold-plot-meta{
-    .plot-type {
-        display: flex;
-        align-items: center;
-        margin: 0;
-        &::before {
-            font-family: "Material Symbols Outlined";
-            font-variation-settings:
-            'FILL' 0,
-            'wght' 400,
-            'GRAD' 0,
-            'opsz' 24;
-            font-size: 30px;
-            opacity: .6;
+
+
+.wp-block-mold-plot-item {
+    .plot-image-trigger {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: opacity 0.2s ease;
+        
+        &:hover {
+            opacity: 0.8;
         }
-        &.plot-type--group {
-            &::before {
-                content: "\e7ef";
-                margin-right: 4px;
+        
+        &:disabled {
+            cursor: default;
+            opacity: 1;
+        }
+    }
+    
+    .plot-description {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #666;
+    }
+}
+
+// Editor specific styles
+.block-editor-block-list__block {
+    .plot-image-trigger {
+        cursor: default !important;
+    }
+}
+
+.plot-details-modal {
+    .plot-modal-content {
+        h2 {
+            margin-top: 0;
+            color: #1e1e1e;
+        }
+        
+        .plot-featured-image {
+            img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 4px;
             }
         }
-        &.plot-type--tailor {
-            &::before {
-                content: "\e87b";
-                margin-right: 4px;
+        
+        .plot-content {
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 10px;
+            
+            p {
+                margin-bottom: 1em;
+            }
+            
+            img {
+                max-width: 100%;
+                height: auto;
             }
         }
     }
 }
+
+
+  .plot-modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 9999;
+                align-items: center;
+                justify-content: center;
+            }
+            .plot-modal[aria-hidden="false"] {
+                display: flex;
+            }
+            .plot-modal__overlay {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.7);
+            }
+            .plot-modal__main {
+                position: relative;
+                background: #fff;
+                padding: 2rem;
+                width: clamp(300px, 60%, 800px);
+                max-height: 90vh;
+                overflow-y: auto;
+                border-radius: 8px;
+                z-index: 10000;
+            }
+            .plot-modal__close {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+            .plot-image-trigger:hover {
+                opacity: 0.9;
+            }
+
+
+            .plot-modal__image img{
+                height: 100px;
+                width: 100px;
+                border-radius: 50%;
+                object-fit: cover;
+                object-position: center;
+            }

@@ -109,9 +109,10 @@ registerBlockType('mold/plot', {
             tooltipBorderRadius,
         } = attributes;
 
-
+        const bgImage = new URL('world-map.png', import.meta.url).toString();
         const blockProps = useBlockProps.save({
             style: {
+                '--bgImage': bgImage ? `url(${bgImage})` : 'none',
                 "--bgColor" : bgColor,
                 "--tooltipBgColor": tooltipBgColor,
                 "--tooltipTextColor": tooltipTextColor,

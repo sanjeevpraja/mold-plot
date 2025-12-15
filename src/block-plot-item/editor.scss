@@ -1,5 +1,5 @@
 /* Editor styles */
-@use '../styles/_color';
+@use '../styles/_color' as *;
 
 
 .block-editor-block-list__block.wp-block-mold-plot-item{
@@ -17,6 +17,21 @@
     object-fit: cover;
     object-position: center;
     background: #f2f2f2;
+      .btn-add-media{
+    height: $height;
+    width: $height;
+    display: grid;
+    place-content: center;
+    background: $primary-500;
+    border: 1px solid $primary-500;
+    color: #ffffff;
+    border-radius: 2px;
+  }
+  img{
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+  }
   }
   .plot-item-info{
     display: flex;
@@ -25,6 +40,27 @@
     .plot-description-placeholder{
       min-height: 50px;
       background: #f2f2f2;
+    }
+  }
+  .plot-meta{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 10px;
+    .plot-lon-lat{
+      display: flex;
+      gap: 30px;
+    }
+    label{
+      margin-bottom: 0;
+      color: #666666;
+    }
+    .components-base-control__field,
+    .components-flex{
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
     }
   }
 }
