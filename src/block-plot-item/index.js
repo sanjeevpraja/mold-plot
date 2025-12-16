@@ -14,9 +14,9 @@ import './style.scss';
 
 registerBlockType('mold/plot-item', {
     icon: {
-        src: <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6.84473 0C8.24459 0.00014636 9.33301 1.08935 9.33301 2.48926V11.5107C9.33301 12.9106 8.24459 13.9999 6.84473 14H2.48926C1.08926 14 0 12.9107 0 11.5107V2.48926C0 1.08926 1.08926 0 2.48926 0H6.84473ZM3.5 10.1113C3.07054 10.1114 2.72276 10.4592 2.72266 10.8887C2.72266 11.3182 3.07048 11.667 3.5 11.667C3.92955 11.667 4.27832 11.3182 4.27832 10.8887C4.27822 10.4592 3.92949 10.1113 3.5 10.1113ZM5.83301 10.1113C5.40366 10.1115 5.05577 10.4593 5.05566 10.8887C5.05566 11.3181 5.4036 11.6668 5.83301 11.667C6.26256 11.667 6.61133 11.3182 6.61133 10.8887C6.61123 10.4592 6.2625 10.1113 5.83301 10.1113Z" />
-        </svg>
+        src: <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.0848 16.2128L10.4773 16.4803L10.8698 16.2128C11.077 16.0712 15.9546 12.6982 15.9546 8.33333C15.9546 5.3925 13.4975 3 10.4773 3C7.45707 3 5 5.3925 5 8.33333C5 12.6982 9.87684 16.0713 10.0848 16.2128ZM10.4773 4.33333C12.7421 4.33333 14.5852 6.12767 14.5852 8.33333C14.5852 11.3483 11.5738 13.9723 10.4773 14.8278C9.3808 13.9723 6.36932 11.3483 6.36932 8.33333C6.36932 6.12767 8.21191 4.33333 10.4773 4.33333ZM12.5313 8.33333C12.5313 7.2305 11.6099 6.33333 10.4773 6.33333C9.34468 6.33333 8.4233 7.2305 8.4233 8.33333C8.4233 9.43617 9.34468 10.3333 10.4773 10.3333C11.6099 10.3333 12.5313 9.43617 12.5313 8.33333ZM9.79262 8.33333C9.79262 7.96583 10.0995 7.66667 10.4773 7.66667C10.8547 7.66667 11.1619 7.96583 11.1619 8.33333C11.1619 8.70083 10.8547 9 10.4773 9C10.0995 9 9.79262 8.70083 9.79262 8.33333Z"/>
+</svg>
     },
 
     attributes: {
@@ -318,7 +318,14 @@ registerBlockType('mold/plot-item', {
         return (
             <div {...blockProps}>
                 {displayImageUrl && (
-                    <div className="plot-item-image">
+                    <div
+                    className="plot-item-image"
+                    style={{
+                        '--border-radius': `${borderRadius}px`,
+                        '--width': `${imageSize}px`,
+                        '--height': `${imageSize}px`
+                    }}
+                    >
                         {plotId && (
                                <button 
                         className="plot-image-trigger" 
@@ -329,28 +336,18 @@ registerBlockType('mold/plot-item', {
                         <img
                             src={displayImageUrl}
                             alt={imageAlt}
-                            style={{
-                                borderRadius: `${borderRadius}px`,
-                                width: `${imageSize}px`,
-                                height: `${imageSize}px`,
-                                objectFit: 'cover'
-                            }}
                         />
                     </button>
                         )}
                         {!plotId && (
+                            <div className="plot-image-trigger" >
                             <img
                             src={displayImageUrl}
                             alt={imageAlt}
                             className={`plot-image-size-${imageSize}`}
-                            style={{ 
-                                borderRadius: `${borderRadius}px`,
-                                width: `${imageSize}px`,
-                                height: `${imageSize}px`,
-                                objectFit: 'cover'
-                            }}
                             data-image-id={imageId}
                         />
+                        </div>
                         )}
 
                         <div className="plot-item-info">

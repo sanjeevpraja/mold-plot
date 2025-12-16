@@ -9,25 +9,13 @@
 
     function initPlotBlocks() {
         const plotBlocks = document.querySelectorAll('.wp-block-mold-plot-item');
-        
         plotBlocks.forEach(block => {
             const trigger = block.querySelector('.plot-image-trigger');
             const plotId = trigger?.getAttribute('data-plot-id');
-            
             if (trigger && plotId) {
                 trigger.addEventListener('click', function(e) {
                     e.preventDefault();
                     openPlotModal(plotId);
-                });
-                
-                // Add hover effect style
-                trigger.style.cursor = 'pointer';
-                trigger.style.transition = 'opacity 0.2s';
-                trigger.addEventListener('mouseenter', () => {
-                    trigger.style.opacity = '0.8';
-                });
-                trigger.addEventListener('mouseleave', () => {
-                    trigger.style.opacity = '1';
                 });
             }
         });
@@ -60,7 +48,7 @@
                 </div>
             `;
             document.body.appendChild(modal);
-            
+
             // Add CSS for spinner animation
             const style = document.createElement('style');
             style.textContent = `
@@ -73,7 +61,6 @@
                 }
             `;
             document.head.appendChild(style);
-            
             // Add event listeners for closing
             modal.querySelector('.plot-modal__overlay').addEventListener('click', closePlotModal);
             modal.querySelector('.plot-modal__close').addEventListener('click', closePlotModal);
@@ -83,13 +70,13 @@
                 }
             });
         }
-        
+
         // Show loading state
         modal.setAttribute('aria-hidden', 'false');
         modal.querySelector('.plot-modal__loading').style.display = 'block';
         modal.querySelector('.plot-modal__data').style.display = 'none';
         modal.querySelector('.plot-modal__error').style.display = 'none';
-        
+
         // Fetch plot data via REST API (no nonce required)
         fetch(`/wp-json/wp/v2/plot/${plotId}?_embed`)
             .then(response => {
@@ -105,22 +92,22 @@
                     const media = plot._embedded['wp:featuredmedia'][0];
                     featuredImage = media.source_url || media.media_details?.sizes?.large?.source_url || media.media_details?.sizes?.full?.source_url;
                 }
-                
+
                 // Update modal content
                 modal.querySelector('.plot-modal__title').textContent = plot.title.rendered;
                 modal.querySelector('.plot-modal__content').innerHTML = plot.content.rendered;
-                
+
                 if (featuredImage) {
                     modal.querySelector('.plot-modal__image').innerHTML = 
                         `<img src="${featuredImage}" alt="${plot.title.rendered}"/>`;
                 } else {
                     modal.querySelector('.plot-modal__image').innerHTML = '';
                 }
-                
+
                 // Show data, hide loading
                 modal.querySelector('.plot-modal__loading').style.display = 'none';
                 modal.querySelector('.plot-modal__data').style.display = 'block';
-                
+
                 // Make images within content responsive
                 modal.querySelectorAll('.plot-modal__content img').forEach(img => {
                     img.style.maxWidth = '100%';
