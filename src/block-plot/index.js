@@ -25,7 +25,7 @@ registerBlockType('mold/plot', {
         tooltipBgColor: { type: "string", default: '#fff' },
         tooltipTextColor: { type: "string", default: '#222' },
         tooltipFontSize: { type: "number", default: 12 },
-        tooltipBorderRadius: { type: "number", default: 10 },
+        tooltipBorderRadius: { type: "number", default: 4 },
     },
     edit: ({ attributes, setAttributes }) => {
         const {
@@ -109,15 +109,15 @@ registerBlockType('mold/plot', {
             tooltipBorderRadius,
         } = attributes;
 
-        const bgImage = new URL('world-map.png', import.meta.url).toString();
+        const bgImage = new URL('world-map-color.png', import.meta.url).toString();
         const blockProps = useBlockProps.save({
             style: {
                 '--bgImage': bgImage ? `url(${bgImage})` : 'none',
                 "--bgColor" : bgColor,
                 "--tooltipBgColor": tooltipBgColor,
                 "--tooltipTextColor": tooltipTextColor,
-                "--tooltipFontSize": tooltipFontSize,
-                "--tooltipBorderRadius": tooltipBorderRadius,
+                "--tooltipFontSize": `${tooltipFontSize}px`,
+                "--tooltipBorderRadius": `${tooltipBorderRadius}px`,
             },
         });
 

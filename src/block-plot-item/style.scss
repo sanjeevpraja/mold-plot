@@ -7,17 +7,17 @@
     left: var(--x-value);
 
     .plot-item-info {
-        $bg-color: rgba(255, 255, 255, 1);
         position: absolute;
         top: -40px;
         left: 50%;
         width: 120px;
         margin-left: -65px;
         padding: 5px;
-        background: $bg-color;
-        border-radius: 4px;
+        background: var(--tooltipBgColor);
+        border-radius: var(--tooltipBorderRadius);
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        color: #000000;
+        color: var(--tooltipTextColor);
+        font-size: var(--tooltipFontSize);
 
         &:before {
             content: "";
@@ -29,7 +29,7 @@
             border-style: solid;
             margin-left: -8px;
             border-width: 8px 8px 0;
-            border-color: $bg-color transparent;
+            border-color: var(--tooltipBgColor) transparent;
         }
 
         .plot-id {
@@ -37,8 +37,6 @@
         }
 
         .plot-description {
-            font-size: 10px;
-            font-weight: 300;
             text-align: center;
         }
     }
