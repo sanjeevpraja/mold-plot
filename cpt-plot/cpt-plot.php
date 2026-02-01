@@ -108,7 +108,10 @@ add_action('admin_enqueue_scripts', 'mold_plot_admin_scripts');
 function mold_plot_toggle_featured() {
     check_ajax_referer('plot_featured_nonce', 'nonce');
 
-    $post_id = intval($_POST['post_id']);
+    $post_id = isset($_POST['post_id']) ? intval($_POST['post_id']) : 0;
+    if (!$post_id) {
+        wp_send_json_error('Invalid post ID');
+    }
     $tag_name = 'featured';
 
     // Get current tags for this post

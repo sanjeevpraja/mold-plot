@@ -1,21 +1,21 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit;
 // Add Meta Boxes
-function add_plot_meta_boxes()
+function mold_add_plot_meta_boxes()
 {
     add_meta_box(
         'plot_details',
         __('Plot Details', 'mold-plot'),
-        'plot_details_callback',
+        'mold_plot_details_callback',
         'plot',  // Changed from 'plot' to match your CPT
         'normal',
         'high'
     );
 }
-add_action('add_meta_boxes', 'add_plot_meta_boxes');
+add_action('add_meta_boxes', 'mold_add_plot_meta_boxes');
 
 // Meta Box Callback Function
-function plot_details_callback($post)
+function mold_plot_details_callback($post)
 {
     // Add nonce field for security
     wp_nonce_field('plot_meta_box', 'plot_meta_box_nonce');
@@ -41,7 +41,7 @@ function plot_details_callback($post)
 }
 
 // Save Meta Box Data - FIXED VERSION
-function save_plot_meta_box_data($post_id)
+function mold_save_plot_meta_box_data($post_id)
 {
     // Check if nonce is set and valid
     if (!isset($_POST['plot_meta_box_nonce']) || !wp_verify_nonce(sanitize_key(wp_unslash($_POST['plot_meta_box_nonce'])), 'plot_meta_box')) {
@@ -69,14 +69,14 @@ function save_plot_meta_box_data($post_id)
         update_post_meta($post_id, '_plot_y', $plot_y);
     }
 }
-add_action('save_post', 'save_plot_meta_box_data');
+add_action('save_post', 'mold_save_plot_meta_box_data');
 
-function get_plot_meta($post_id, $field)
+function mold_get_plot_meta($post_id, $field)
 {
     return get_post_meta($post_id, '_plot_' . $field, true);
 }
 
-function display_plot_info($post_id = null)
+function mold_display_plot_info($post_id = null)
 {
     if (!$post_id) {
         $post_id = get_the_ID();
@@ -89,7 +89,7 @@ function display_plot_info($post_id = null)
 
     echo '<div class="cpt-info">';
     foreach ($fields as $field => $label) {
-        $value = get_plot_meta($post_id, $field);
+        $value = mold_get_plot_meta($post_id, $field);
         if (!empty($value)) {
             echo '<div class="cpt-field">';
             echo '<strong>' . esc_html($label) . ':</strong> ';
@@ -100,7 +100,7 @@ function display_plot_info($post_id = null)
     echo '</div>';
 }
 
-function register_plot_meta_fields()
+function mold_register_plot_meta_fields()
 {
     $fields = array(
         'x',
@@ -129,10 +129,10 @@ function register_plot_meta_fields()
         });
     }
 }
-add_action('init', 'register_plot_meta_fields');
+add_action('init', 'mold_register_plot_meta_fields');
 
 // Admin list view
-function plot_admin_columns($columns)
+function mold_plot_admin_columns($columns)
 {
     $new_columns = array();
     $new_columns['cb'] = $columns['cb'];
@@ -144,10 +144,10 @@ function plot_admin_columns($columns)
 
     return $new_columns;
 }
-add_filter('manage_plot_posts_columns', 'plot_admin_columns');
+add_filter('manage_plot_posts_columns', 'mold_plot_admin_columns');
 
 // Display custom columns in admin
-function plot_custom_columns($column, $post_id)
+function mold_plot_custom_columns($column, $post_id)
 {
     switch ($column) {
         case 'featured':
@@ -167,14 +167,14 @@ function plot_custom_columns($column, $post_id)
             break;
     }
 }
-add_action('manage_plot_posts_custom_column', 'plot_custom_columns', 10, 2);
+add_action('manage_plot_posts_custom_column', 'mold_plot_custom_columns', 10, 2);
 
 // Make columns sortable
-function plot_sortable_columns($columns)
+function mold_plot_sortable_columns($columns)
 {
     $columns['x'] = 'x';
     $columns['y'] = 'y';
     return $columns;
 }
-add_filter('manage_edit-plot_sortable_columns', 'plot_sortable_columns');
+add_filter('manage_edit-plot_sortable_columns', 'mold_plot_sortable_columns');
 ?>
