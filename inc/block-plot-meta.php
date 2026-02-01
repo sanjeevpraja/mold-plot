@@ -2,7 +2,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 // render.php
 // Block rendering function
-function wp_mold_plot_render_plot_meta($attributes, $content, $block)
+function mold_plot_render_plot_meta($attributes, $content, $block)
 {
     $html_tag = !empty($attributes['htmlTag']) ? $attributes['htmlTag'] : 'p';
     $fallback = !empty($attributes['fallback']) ? $attributes['fallback'] : '';

@@ -81,7 +81,7 @@ if (!function_exists('mold_plot_enqueue_styles_scripts_plugin')) {
 /*gutenberg block*/
 function mold_plot_register_block()
 {
-	$options = get_option('wp_mold_plot_blocks_settings');
+	$options = get_option('mold_plot_blocks_settings');
 	$blocks = [
 		'block-plot',
 		'block-plot-item',
@@ -104,7 +104,7 @@ function mold_plot_register_block()
 		// Register the block if not disabled
 		if ($is_disabled !== '1') {
 			if (file_exists(plugin_dir_path(__FILE__) . 'inc/' . $block . '.php')) {
-				$function_name = 'wp_mold_plot_render_' . str_replace('-', '_', str_replace('block-', '', $block));
+				$function_name = 'mold_plot_render_' . str_replace('-', '_', str_replace('block-', '', $block));
 				require_once plugin_dir_path(__FILE__) . 'inc/' . $block . '.php';
 				register_block_type(__DIR__ . "/build/$block", [
 					'render_callback' => $function_name,
@@ -130,9 +130,9 @@ add_action('init', 'mold_plot_register_block');
 /**
  * CPT Plot
  */
-$plot_cpt_file = plugin_dir_path(__FILE__) . 'cpt-plot/cpt-plot.php';
-if (file_exists($plot_cpt_file)) {
-	require_once $plot_cpt_file;
+$mold_plot_cpt_file = plugin_dir_path(__FILE__) . 'cpt-plot/cpt-plot.php';
+if (file_exists($mold_plot_cpt_file)) {
+	require_once $mold_plot_cpt_file;
 
 	/**
 	 * Plot Setting
