@@ -5,13 +5,13 @@ jQuery(document).ready(function ($) {
         var postId = $(this).data('post-id');
 
         $.post(plotFeatured.ajax_url, {
-            action: 'plot_toggle_featured',
+            action: 'mold_plot_toggle_featured',
             post_id: postId,
             nonce: plotFeatured.nonce
         }, function (response) {
             if (response.success) {
                 $icon.removeClass('dashicons-star-filled dashicons-star-empty')
-                     .addClass(response.data.icon);
+                    .addClass(response.data.icon);
             }
         });
     });

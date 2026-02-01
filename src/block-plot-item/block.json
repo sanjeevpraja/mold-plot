@@ -2,10 +2,15 @@
   "apiVersion": 2,
   "name": "mold/plot-item",
   "title": "Plot Item",
-  "parent": ["mold/plot"],
+  "parent": [
+    "mold/plot"
+  ],
   "category": "mold",
   "editorScript": "file:./index.js",
   "viewScript": "file:./frontend.js",
   "editorStyle": "file:./editor.css",
-  "style": "file:./style-index.css"
+  "style": "file:./style-index.css",
+  "usesContext": [
+    "mold/plotType"
+  ]
 }

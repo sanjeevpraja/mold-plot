@@ -1,13 +1,17 @@
 <?php
 /*
 Plugin Name: Mold Plot
-Plugin URI: http://moldthemes.com
+Plugin URI: https://moldthemes.com
 Description: Mold Plot Plugin
 Version: 3.0
 Author: Mold Themes
-Author URI: http://www.moldthemes.com
+Author URI: https://www.moldthemes.com
 Text Domain: mold-plot
 Domain Path:  /languages
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Requires at least: 6.0
+Requires PHP: 7.4
 */
 
 /*
@@ -145,8 +149,8 @@ if (file_exists($plot_cpt_file)) {
 
 
 // AJAX handler for fetching plot data
-add_action('wp_ajax_get_plot_data', 'mold_get_plot_data_callback');
-add_action('wp_ajax_nopriv_get_plot_data', 'mold_get_plot_data_callback');
+add_action('wp_ajax_mold_get_plot_data', 'mold_get_plot_data_callback');
+add_action('wp_ajax_nopriv_mold_get_plot_data', 'mold_get_plot_data_callback');
 
 function mold_get_plot_data_callback() {
     // Verify nonce for security

@@ -43,14 +43,14 @@ function callback_block_plot_meta($attributes, $content, $block)
         $output = sprintf(
             '<%1$s class="wp-mold-plot-meta-info meta-x">%2$s</%1$s>',
             $html_tag,
-            $display_content
+            esc_html($display_content)
         );
     }
     elseif ($meta_key == 'plot_y') {
         $output = sprintf(
             '<%1$s class="wp-mold-plot-meta-info meta-y">%2$s</%1$s>',
             $html_tag,
-            $display_content
+            esc_html($display_content)
         );
     }
     else {

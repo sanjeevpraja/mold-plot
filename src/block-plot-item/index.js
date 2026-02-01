@@ -15,8 +15,8 @@ import './style.scss';
 registerBlockType('mold/plot-item', {
     icon: {
         src: <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M10.0848 16.2128L10.4773 16.4803L10.8698 16.2128C11.077 16.0712 15.9546 12.6982 15.9546 8.33333C15.9546 5.3925 13.4975 3 10.4773 3C7.45707 3 5 5.3925 5 8.33333C5 12.6982 9.87684 16.0713 10.0848 16.2128ZM10.4773 4.33333C12.7421 4.33333 14.5852 6.12767 14.5852 8.33333C14.5852 11.3483 11.5738 13.9723 10.4773 14.8278C9.3808 13.9723 6.36932 11.3483 6.36932 8.33333C6.36932 6.12767 8.21191 4.33333 10.4773 4.33333ZM12.5313 8.33333C12.5313 7.2305 11.6099 6.33333 10.4773 6.33333C9.34468 6.33333 8.4233 7.2305 8.4233 8.33333C8.4233 9.43617 9.34468 10.3333 10.4773 10.3333C11.6099 10.3333 12.5313 9.43617 12.5313 8.33333ZM9.79262 8.33333C9.79262 7.96583 10.0995 7.66667 10.4773 7.66667C10.8547 7.66667 11.1619 7.96583 11.1619 8.33333C11.1619 8.70083 10.8547 9 10.4773 9C10.0995 9 9.79262 8.70083 9.79262 8.33333Z"/>
-</svg>
+            <path d="M10.0848 16.2128L10.4773 16.4803L10.8698 16.2128C11.077 16.0712 15.9546 12.6982 15.9546 8.33333C15.9546 5.3925 13.4975 3 10.4773 3C7.45707 3 5 5.3925 5 8.33333C5 12.6982 9.87684 16.0713 10.0848 16.2128ZM10.4773 4.33333C12.7421 4.33333 14.5852 6.12767 14.5852 8.33333C14.5852 11.3483 11.5738 13.9723 10.4773 14.8278C9.3808 13.9723 6.36932 11.3483 6.36932 8.33333C6.36932 6.12767 8.21191 4.33333 10.4773 4.33333ZM12.5313 8.33333C12.5313 7.2305 11.6099 6.33333 10.4773 6.33333C9.34468 6.33333 8.4233 7.2305 8.4233 8.33333C8.4233 9.43617 9.34468 10.3333 10.4773 10.3333C11.6099 10.3333 12.5313 9.43617 12.5313 8.33333ZM9.79262 8.33333C9.79262 7.96583 10.0995 7.66667 10.4773 7.66667C10.8547 7.66667 11.1619 7.96583 11.1619 8.33333C11.1619 8.70083 10.8547 9 10.4773 9C10.0995 9 9.79262 8.70083 9.79262 8.33333Z" />
+        </svg>
     },
 
     attributes: {
@@ -59,10 +59,14 @@ registerBlockType('mold/plot-item', {
         plotId: {
             type: 'string',
             default: ''
+        },
+        plotType: {
+            type: 'string',
+            default: 'world-map'
         }
     },
 
-    edit: ({ attributes, setAttributes }) => {
+    edit: ({ attributes, setAttributes, context }) => {
         const blockProps = useBlockProps();
         const {
             imageId,
@@ -74,8 +78,18 @@ registerBlockType('mold/plot-item', {
             latitude,
             longitude,
             description,
-            plotId
+            plotId,
+            plotType // Get local attribute
         } = attributes;
+
+        // Sync context to attribute
+        useEffect(() => {
+            if (context['mold/plotType'] && context['mold/plotType'] !== plotType) {
+                setAttributes({ plotType: context['mold/plotType'] });
+            }
+        }, [context['mold/plotType']]);
+
+        const showImageCoordinates = plotType === 'image';
 
         // State for available plot posts
         const [plotOptions, setPlotOptions] = useState([]);
@@ -102,11 +116,11 @@ registerBlockType('mold/plot-item', {
                     path: `/wp/v2/media/${imageId}`
                 }).then(media => {
                     // Get thumbnail URL if available, otherwise fallback to full size
-                    const thumbnail = media.media_details?.sizes?.thumbnail?.source_url || 
-                                     media.media_details?.sizes?.medium?.source_url || 
-                                     media.source_url || 
-                                     imageUrl;
-                    
+                    const thumbnail = media.media_details?.sizes?.thumbnail?.source_url ||
+                        media.media_details?.sizes?.medium?.source_url ||
+                        media.source_url ||
+                        imageUrl;
+
                     setAttributes({
                         imageUrl: media.source_url,
                         thumbnailUrl: thumbnail,
@@ -120,10 +134,10 @@ registerBlockType('mold/plot-item', {
 
         const handleImageChange = (newImage) => {
             // Get thumbnail URL if available
-            const thumbnail = newImage.sizes?.thumbnail?.url || 
-                             newImage.sizes?.medium?.url || 
-                             newImage.url;
-            
+            const thumbnail = newImage.sizes?.thumbnail?.url ||
+                newImage.sizes?.medium?.url ||
+                newImage.url;
+
             setAttributes({
                 imageId: newImage.id,
                 imageUrl: newImage.url,
@@ -135,7 +149,7 @@ registerBlockType('mold/plot-item', {
         // Determine which image URL to display
         const displayImageUrl = thumbnailUrl || imageUrl;
 
-        
+
 
         return (
             <>
@@ -190,7 +204,7 @@ registerBlockType('mold/plot-item', {
                                 )}
                             />
                         </MediaUploadCheck>
-                        <hr/>
+                        <hr />
                         <RangeControl
                             label={__('Border Radius', 'mold-plot')}
                             value={borderRadius}
@@ -212,7 +226,7 @@ registerBlockType('mold/plot-item', {
                 </InspectorControls>
 
                 <div {...blockProps}>
-                    <div className="plot-item-image" style={{borderRadius: `${borderRadius}px`}}>
+                    <div className="plot-item-image" style={{ borderRadius: `${borderRadius}px` }}>
                         <MediaUpload
                             onSelect={handleImageChange}
                             allowedTypes={['image']}
@@ -220,10 +234,10 @@ registerBlockType('mold/plot-item', {
                             render={({ open }) => (
                                 <div onClick={open} style={{ cursor: 'pointer' }}>
                                     {displayImageUrl ? (
-                                        <img 
-                                            src={displayImageUrl} 
-                                            alt={imageAlt} 
-                                            style={{ 
+                                        <img
+                                            src={displayImageUrl}
+                                            alt={imageAlt}
+                                            style={{
                                                 borderRadius: `${borderRadius}px`,
                                                 objectFit: 'cover'
                                             }}
@@ -242,22 +256,46 @@ registerBlockType('mold/plot-item', {
                         <div class="plot-meta">
                             <div class="plot-lon-lat">
                                 <TextControl
-                                    label={__('Latitude', 'mold-plot')}
+                                    label={showImageCoordinates ? __('Axis Y (%)', 'mold-plot') : __('Latitude', 'mold-plot')}
                                     value={latitude}
-                                    onChange={(value) => setAttributes({ latitude: value })}
-                                    placeholder="e.g., 40.71"
+                                    onChange={(value) => {
+                                        let val = parseFloat(value);
+                                        if (showImageCoordinates) {
+                                            if (val < 0) val = 0;
+                                            if (val > 100) val = 100;
+                                            setAttributes({ latitude: isNaN(val) ? value : val.toString() });
+                                        } else {
+                                            if (val < -90) val = -90;
+                                            if (val > 90) val = 90;
+                                            setAttributes({ latitude: isNaN(val) ? value : val.toString() });
+                                        }
+                                    }}
+                                    placeholder={showImageCoordinates ? "0-100" : "e.g., 40.71"}
                                     type="number"
-                                    min={-90}
-                                    max={90}
+                                    min={showImageCoordinates ? 0 : -90}
+                                    max={showImageCoordinates ? 100 : 90}
+                                    help={showImageCoordinates ? "Top(0) to Bottom(100)" : ""}
                                 />
                                 <TextControl
-                                    label={__('Longitude', 'mold-plot')}
+                                    label={showImageCoordinates ? __('Axis X (%)', 'mold-plot') : __('Longitude', 'mold-plot')}
                                     value={longitude}
-                                    onChange={(value) => setAttributes({ longitude: value })}
-                                    placeholder="e.g., -74.00"
+                                    onChange={(value) => {
+                                        let val = parseFloat(value);
+                                        if (showImageCoordinates) {
+                                            if (val < 0) val = 0;
+                                            if (val > 100) val = 100;
+                                            setAttributes({ longitude: isNaN(val) ? value : val.toString() });
+                                        } else {
+                                            if (val < -180) val = -180;
+                                            if (val > 180) val = 180;
+                                            setAttributes({ longitude: isNaN(val) ? value : val.toString() });
+                                        }
+                                    }}
+                                    placeholder={showImageCoordinates ? "0-100" : "e.g., -74.00"}
                                     type="number"
-                                    min={-180}
-                                    max={180}
+                                    min={showImageCoordinates ? 0 : -180}
+                                    max={showImageCoordinates ? 100 : 180}
+                                    help={showImageCoordinates ? "Left(0) to Right(100)" : ""}
                                 />
                             </div>
                             <div className="plot-id" >
@@ -297,18 +335,31 @@ registerBlockType('mold/plot-item', {
             longitude,
             description,
             plotId,
+            plotType,
         } = attributes;
 
-        const longitude_per = longitude ? Math.round(((Number(longitude) + 180) / 360) * 100) : 0;
-        const latitude_per = latitude ? Math.round(((90 - Number(latitude)) / 180) * 100) : 0;
+        let longitude_per = 0;
+        let latitude_per = 0;
+
+        if (plotType === 'image') {
+            // For image, values are percentages (0-100)
+            // X (longitude attribute) = Left to Right (0-100)
+            // Y (latitude attribute) = Top to Bottom (0-100)
+            longitude_per = longitude ? Number(longitude) : 0;
+            latitude_per = latitude ? Number(latitude) : 0;
+        } else {
+            // World Map Logic
+            longitude_per = longitude ? Math.round(((Number(longitude) + 180) / 360) * 100) : 0;
+            latitude_per = latitude ? Math.round(((90 - Number(latitude)) / 180) * 100) : 0;
+        }
 
         const blockProps = useBlockProps.save({
             className: 'plot-item',
             style: {
                 "--longitude": longitude,
                 "--latitude": latitude,
-                "--x-value": longitude_per+"%",
-                "--y-value": latitude_per+"%"
+                "--x-value": longitude_per + "%",
+                "--y-value": latitude_per + "%"
             }
         });
 
@@ -319,50 +370,50 @@ registerBlockType('mold/plot-item', {
             <div {...blockProps}>
                 {displayImageUrl && (
                     <div
-                    className="plot-item-image"
-                    style={{
-                        '--border-radius': `${borderRadius}px`,
-                        '--width': `${imageSize}px`,
-                        '--height': `${imageSize}px`
-                    }}
+                        className="plot-item-image"
+                        style={{
+                            '--border-radius': `${borderRadius}px`,
+                            '--width': `${imageSize}px`,
+                            '--height': `${imageSize}px`
+                        }}
                     >
                         {plotId && (
-                               <button 
-                        className="plot-image-trigger" 
-                        type="button"
-                        data-plot-id={plotId}
-                        aria-label={`View details for plot ${plotId}`}
-                    >
-                        <img
-                            src={displayImageUrl}
-                            alt={imageAlt}
-                        />
-                    </button>
+                            <button
+                                className="plot-image-trigger"
+                                type="button"
+                                data-plot-id={plotId}
+                                aria-label={`View details for plot ${plotId}`}
+                            >
+                                <img
+                                    src={displayImageUrl}
+                                    alt={imageAlt}
+                                />
+                            </button>
                         )}
                         {!plotId && (
                             <div className="plot-image-trigger" >
-                            <img
-                            src={displayImageUrl}
-                            alt={imageAlt}
-                            className={`plot-image-size-${imageSize}`}
-                            data-image-id={imageId}
-                        />
-                        </div>
+                                <img
+                                    src={displayImageUrl}
+                                    alt={imageAlt}
+                                    className={`plot-image-size-${imageSize}`}
+                                    data-image-id={imageId}
+                                />
+                            </div>
                         )}
 
                         <div className="plot-item-info">
-                        {/* {plotId && (
+                            {/* {plotId && (
                             <div className="plot-id" data-plot-id={plotId}>
                                 {__('Plot ID:', 'mold-plot')} {plotId}
                             </div>
                         )} */}
 
-                        {description && (
-                            <div className="plot-description">
-                                {description}
-                            </div>
-                        )}
-                    </div>
+                            {description && (
+                                <div className="plot-description">
+                                    {description}
+                                </div>
+                            )}
+                        </div>
                     </div>
                 )}
 

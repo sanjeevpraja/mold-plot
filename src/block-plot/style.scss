@@ -1,11 +1,35 @@
 /* Frontend styles */
 @use '../styles/_color';
 
-.mold-plot-map{
+.mold-plot-map {
     aspect-ratio: 1192/610;
     background: var(--bgColor);
     background-image: var(--bgImage);
     background-size: cover;
     background-position: center;
     position: relative;
+
+    &.tooltip-show-on-hover {
+        .plot-item-info {
+            opacity: 0;
+        }
+
+        .plot-item-image:hover {
+            .plot-item-info {
+                opacity: 1;
+            }
+        }
+    }
+
+    &.tooltip-rotate {
+        .plot-item-info {
+            opacity: 0;
+        }
+        .plot-item-image:hover,
+        .plot-item.active {
+            .plot-item-info {
+                opacity: 1;
+            }
+        }
+    }
 }

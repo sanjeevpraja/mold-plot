@@ -4,7 +4,7 @@
  */
 
 // Register Custom Post Type
-function create_plot_post_type() {
+function mold_create_plot_post_type() {
     $labels = array(
         'name'                  => _x('Plots', 'Post Type General Name', 'mold-plot'),
         'singular_name'         => _x('Plot', 'Post Type Singular Name', 'mold-plot'),
@@ -28,11 +28,11 @@ function create_plot_post_type() {
         'set_featured_image'    => __('Set featured image', 'mold-plot'),
         'remove_featured_image' => __('Remove featured image', 'mold-plot'),
         'use_featured_image'    => __('Use as featured image', 'mold-plot'),
-        'insert_into_item'      => __('Insert into plot', 'mold-plot'), // Fixed: was 'member'
-        'uploaded_to_this_item' => __('Uploaded to this plot', 'mold-plot'), // Fixed: was 'member'
-        'items_list'            => __('Plots list', 'mold-plot'), // Fixed: was 'Members list'
-        'items_list_navigation' => __('Plots list navigation', 'mold-plot'), // Fixed: was 'Members list navigation'
-        'filter_items_list'     => __('Filter plots list', 'mold-plot'), // Fixed: was 'Filter members list'
+        'insert_into_item'      => __('Insert into plot', 'mold-plot'),
+        'uploaded_to_this_item' => __('Uploaded to this plot', 'mold-plot'),
+        'items_list'            => __('Plots list', 'mold-plot'),
+        'items_list_navigation' => __('Plots list navigation', 'mold-plot'),
+        'filter_items_list'     => __('Filter plots list', 'mold-plot'),
     );
 
     $args = array(
@@ -59,7 +59,7 @@ function create_plot_post_type() {
 
     register_post_type('plot', $args);
 }
-add_action('init', 'create_plot_post_type', 0);
+add_action('init', 'mold_create_plot_post_type', 0);
 
 
 // Add default content when plot is created
@@ -85,7 +85,7 @@ add_action('wp_insert_post', 'mold_set_default_plot_content', 10, 3);
 
 
 // Enqueue admin script
-function plot_admin_scripts($hook) {
+function mold_plot_admin_scripts($hook) {
     if ($hook !== 'edit.php' || get_current_screen()->post_type !== 'plot') {
         return;
     }
@@ -99,12 +99,12 @@ function plot_admin_scripts($hook) {
         'nonce'    => wp_create_nonce('plot_featured_nonce'),
     ));
 }
-add_action('admin_enqueue_scripts', 'plot_admin_scripts');
+add_action('admin_enqueue_scripts', 'mold_plot_admin_scripts');
 
 
 
 // AJAX handler for toggling featured (using tag instead of meta)
-function plot_toggle_featured() {
+function mold_plot_toggle_featured() {
     check_ajax_referer('plot_featured_nonce', 'nonce');
 
     $post_id = intval($_POST['post_id']);
@@ -128,7 +128,7 @@ function plot_toggle_featured() {
         'icon' => $new_status ? 'dashicons-star-filled' : 'dashicons-star-empty',
     ));
 }
-add_action('wp_ajax_plot_toggle_featured', 'plot_toggle_featured');
+add_action('wp_ajax_mold_plot_toggle_featured', 'mold_plot_toggle_featured');
 
 
 
