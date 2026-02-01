@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 // Add Meta Boxes
 function add_plot_meta_boxes()
 {
@@ -27,11 +28,11 @@ function plot_details_callback($post)
     <table class="form-table" role="presentation">
         <tbody>
             <tr>
-                <th scope="row"><label for="plot_x"><?php _e('Longitude', 'mold-plot'); ?></label></th>
+                <th scope="row"><label for="plot_x"><?php esc_html_e('Longitude', 'mold-plot'); ?></label></th>
                 <td><input type="number" step="any" id="plot_x" name="plot_x" value="<?php echo esc_attr($plot_x); ?>" class="regular-text" /></td>
             </tr>
             <tr>
-                <th scope="row"><label for="plot_y"><?php _e('Latitude', 'mold-plot'); ?></label></th>
+                <th scope="row"><label for="plot_y"><?php esc_html_e('Latitude', 'mold-plot'); ?></label></th>
                 <td><input type="number" step="any" id="plot_y" name="plot_y" value="<?php echo esc_attr($plot_y); ?>" class="regular-text" /></td>
             </tr>
         </tbody>
@@ -43,7 +44,7 @@ function plot_details_callback($post)
 function save_plot_meta_box_data($post_id)
 {
     // Check if nonce is set and valid
-    if (!isset($_POST['plot_meta_box_nonce']) || !wp_verify_nonce($_POST['plot_meta_box_nonce'], 'plot_meta_box')) {
+    if (!isset($_POST['plot_meta_box_nonce']) || !wp_verify_nonce(sanitize_key(wp_unslash($_POST['plot_meta_box_nonce'])), 'plot_meta_box')) {
         return;
     }
 
@@ -58,13 +59,13 @@ function save_plot_meta_box_data($post_id)
 
     // Save longitude (x)
     if (isset($_POST['plot_x'])) {
-        $plot_x = sanitize_text_field($_POST['plot_x']);
+        $plot_x = sanitize_text_field(wp_unslash($_POST['plot_x']));
         update_post_meta($post_id, '_plot_x', $plot_x);
     }
     
     // Save latitude (y)
     if (isset($_POST['plot_y'])) {
-        $plot_y = sanitize_text_field($_POST['plot_y']);
+        $plot_y = sanitize_text_field(wp_unslash($_POST['plot_y']));
         update_post_meta($post_id, '_plot_y', $plot_y);
     }
 }

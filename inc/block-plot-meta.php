@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 // render.php
 // Block rendering function
 function callback_block_plot_meta($attributes, $content, $block)

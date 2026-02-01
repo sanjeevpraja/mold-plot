@@ -14,6 +14,8 @@ Requires at least: 6.0
 Requires PHP: 7.4
 */
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 /*
 * Define constant
 */
@@ -27,9 +29,11 @@ function wp_mold_plot_is_mold_block_active()
 	return is_plugin_active('mold-blocks/mold-blocks.php');
 }
 
+
 /**
  * Localization
  */
+
 if (!function_exists('mold_load_plot_plugin_textdomain')) {
 	function mold_load_plot_plugin_textdomain()
 	{
@@ -37,8 +41,7 @@ if (!function_exists('mold_load_plot_plugin_textdomain')) {
 		$locale = apply_filters('plugin_locale', get_locale(), $domain);
 		// wp-content/languages/plugin-name/plugin-name-de_DE.mo
 		load_textdomain($domain, trailingslashit(WP_LANG_DIR) . $domain . '/' . $domain . '-' . $locale . '.mo');
-		// wp-content/plugins/plugin-name/languages/plugin-name-de_DE.mo
-		load_plugin_textdomain($domain, FALSE, basename(dirname(__FILE__)) . '/languages/');
+        // load_plugin_textdomain is discouraged.
 	}
 	add_action('plugins_loaded', 'mold_load_plot_plugin_textdomain');
 }
@@ -181,3 +184,4 @@ function mold_get_plot_data_callback() {
 
     wp_send_json_success($response);
 }
+

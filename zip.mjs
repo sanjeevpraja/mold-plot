@@ -28,6 +28,9 @@ const excludeList = [
   'zip.js',
   'webpack.config.js',
   '.idea',
+  'prepros.config',
+  'prepros-6.config',
+  '.DS_Store'
 ];
 
 // Helper: recursively copy excluding `.map` files

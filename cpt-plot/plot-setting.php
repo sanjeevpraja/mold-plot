@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 // Add submenu under "Plots"
 add_action('admin_menu', 'mold_add_plot_settings_submenu');
 function mold_add_plot_settings_submenu()
@@ -18,7 +19,7 @@ function mold_render_plot_settings_page()
 {
 ?>
     <div class="wrap">
-        <h1><?php _e('Plot Settings', 'mold-plot'); ?></h1>
+        <h1><?php esc_html_e('Plot Settings', 'mold-plot'); ?></h1>
         <form method="post" action="options.php">
             <?php
             settings_fields('plot_settings_group');
@@ -35,7 +36,7 @@ add_action('admin_init', 'mold_register_plot_settings');
 function mold_register_plot_settings()
 {
     // Register options
-    register_setting('plot_settings_group', 'plot_type');
+    register_setting('plot_settings_group', 'plot_type', 'sanitize_text_field');
 
     // Section
     add_settings_section(
