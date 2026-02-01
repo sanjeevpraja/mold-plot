@@ -1,3 +1,5 @@
+import worldMapUrl from './world-map.svg?url';
+import worldMapPngUrl from './world-map-color.png';
 import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, InspectorControls, InnerBlocks, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 import { PanelBody, RangeControl, SelectControl, Button } from '@wordpress/components';
@@ -9,6 +11,7 @@ import './style.scss';
 
 const plotTypeOptions = [ // Rename the array
     { label: 'World Map', value: 'world-map' },
+    { label: 'World Map (SVG)', value: 'world-map-svg' },
     { label: 'Image', value: 'image' },
 ];
 
@@ -29,6 +32,7 @@ registerBlockType('mold/plot', {
         imageId: { type: 'number', default: 0 },
         imageUrl: { type: 'string', default: '' },
         bgColor: { type: "string", default: '#fff' },
+        mapColor: { type: "string", default: '#cccccc' },
         tooltipType: { type: "string", default: 'tooltip-show' },
         tooltipInterval: { type: "number", default: 1000 },
         tooltipBgColor: { type: "string", default: '#fff' },
@@ -42,6 +46,7 @@ registerBlockType('mold/plot', {
             imageId,
             imageUrl,
             bgColor,
+            mapColor,
             tooltipType,
             tooltipInterval,
             tooltipBgColor,
@@ -93,6 +98,14 @@ registerBlockType('mold/plot', {
                             onChange={(newBgColor) => setAttributes({ bgColor: newBgColor })}
                             enableAlpha={true}
                         />
+                        {plotType === 'world-map-svg' && (
+                            <ColorControl
+                                label={__('Map Color', 'wp-mold')}
+                                value={mapColor}
+                                onChange={(newMapColor) => setAttributes({ mapColor: newMapColor })}
+                                enableAlpha={true}
+                            />
+                        )}
                     </PanelBody>
 
                     <PanelBody title={__('Tooltip', 'wp-mold')} initialOpen={true}>
@@ -155,6 +168,7 @@ registerBlockType('mold/plot', {
             plotType,
             imageUrl,
             bgColor,
+            mapColor,
             tooltipType,
             tooltipInterval,
             tooltipBgColor,
@@ -163,21 +177,24 @@ registerBlockType('mold/plot', {
             tooltipBorderRadius,
         } = attributes;
 
-        const defaultBgImage = new URL('world-map-color.png', import.meta.url).toString();
+        const defaultBgImage = worldMapUrl;
 
         let bgImage = defaultBgImage;
         if (plotType === 'image' && imageUrl) {
             bgImage = imageUrl;
         } else if (plotType === 'image' && !imageUrl) {
             bgImage = ''; // No image if type is image but none selected
+        } else if (plotType === 'world-map-svg') {
+            bgImage = worldMapUrl;
         } else if (plotType === 'world-map') {
-            bgImage = defaultBgImage;
+            bgImage = worldMapPngUrl;
         }
 
         const blockProps = useBlockProps.save({
             style: {
                 '--bgImage': bgImage ? `url(${bgImage})` : 'none',
                 "--bgColor": bgColor,
+                "--mapColor": mapColor,
                 "--tooltipBgColor": tooltipBgColor,
                 "--tooltipTextColor": tooltipTextColor,
                 "--tooltipFontSize": `${tooltipFontSize}px`,

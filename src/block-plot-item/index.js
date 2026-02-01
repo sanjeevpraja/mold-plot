@@ -340,7 +340,6 @@ registerBlockType('mold/plot-item', {
 
         let longitude_per = 0;
         let latitude_per = 0;
-
         if (plotType === 'image') {
             // For image, values are percentages (0-100)
             // X (longitude attribute) = Left to Right (0-100)
@@ -352,6 +351,7 @@ registerBlockType('mold/plot-item', {
             longitude_per = longitude ? Math.round(((Number(longitude) + 180) / 360) * 100) : 0;
             latitude_per = latitude ? Math.round(((90 - Number(latitude)) / 180) * 100) : 0;
         }
+
 
         const blockProps = useBlockProps.save({
             className: 'plot-item',

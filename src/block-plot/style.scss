@@ -3,11 +3,39 @@
 
 .mold-plot-map {
     aspect-ratio: 1192/610;
-    background: var(--bgColor);
-    background-image: var(--bgImage);
-    background-size: cover;
-    background-position: center;
+    background-color: var(--bgColor);
     position: relative;
+
+    &.plot-type-image,
+    &.plot-type-world-map {
+        background-image: var(--bgImage);
+        background-size: cover;
+        background-position: center;
+    }
+
+    &.plot-type-world-map-svg {
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--mapColor);
+
+            mask-image: var(--bgImage);
+            mask-size: cover;
+            mask-position: center;
+            mask-repeat: no-repeat;
+
+            -webkit-mask-image: var(--bgImage);
+            -webkit-mask-size: cover;
+            -webkit-mask-position: center;
+            -webkit-mask-repeat: no-repeat;
+
+            pointer-events: none;
+        }
+    }
 
     &.tooltip-show-on-hover {
         .plot-item-info {
@@ -25,6 +53,7 @@
         .plot-item-info {
             opacity: 0;
         }
+
         .plot-item-image:hover,
         .plot-item.active {
             .plot-item-info {
