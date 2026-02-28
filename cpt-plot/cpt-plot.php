@@ -93,7 +93,7 @@ function mold_plot_admin_scripts($hook) {
 
     wp_enqueue_script(
         'plot-admin-featured',
-        MOLD_PLOT_BASE_URL . 'js/plot-admin-featured.js', array('jquery'), '1.0', true);
+        MOLD_PLOT_BASE_URL . 'js/plot-admin-featured.js', array('jquery'), MOLD_PLOT_VERSION, true);
 
     wp_localize_script('plot-admin-featured', 'plotFeatured', array(
         'ajax_url' => admin_url('admin-ajax.php'),

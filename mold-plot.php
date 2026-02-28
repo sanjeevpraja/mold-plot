@@ -32,18 +32,6 @@ function mold_plot_is_mold_block_active()
 }
 
 
-/**
- * Localization
- */
-
-if (!function_exists('mold_load_plot_plugin_textdomain')) {
-	function mold_load_plot_plugin_textdomain()
-	{
-		$domain = 'mold-plot';
-		load_plugin_textdomain($domain, false, dirname(plugin_basename(__FILE__)) . '/languages/');
-	}
-	add_action('plugins_loaded', 'mold_load_plot_plugin_textdomain');
-}
 
 /**
  * Enqueue Admin styles and scripts
@@ -55,7 +43,7 @@ if (!function_exists('mold_load_plot_admin_styles')) {
 
 		global $post;
 		if (is_object($post) && ($post->post_type == 'plot')) {
-			wp_enqueue_script('plotadmin', MOLD_PLOT_BASE_URL . 'js/plot-admin.js', ['wp-data', 'wp-edit-post', 'wp-dom-ready'], false, MOLD_PLOT_VERSION);
+			wp_enqueue_script('plotadmin', MOLD_PLOT_BASE_URL . 'js/plot-admin.js', ['wp-data', 'wp-edit-post', 'wp-dom-ready'], MOLD_PLOT_VERSION, true);
 		}
 	}
 	add_action('admin_enqueue_scripts', 'mold_load_plot_admin_styles');
@@ -68,7 +56,7 @@ if (!function_exists('mold_plot_enqueue_styles_scripts_plugin')) {
 
 	function mold_plot_enqueue_styles_scripts_plugin()
 	{
-		wp_enqueue_script('mold-plot', MOLD_PLOT_BASE_URL . 'js/plot.js', array('jquery'), array(), MOLD_PLOT_VERSION);
+		wp_enqueue_script('mold-plot', MOLD_PLOT_BASE_URL . 'js/plot.js', array('jquery'), MOLD_PLOT_VERSION, true);
 		wp_enqueue_style('mold-plot-core', MOLD_PLOT_BASE_URL . 'css/plot-core.css', array(), MOLD_PLOT_VERSION);
 
 	}
@@ -113,7 +101,7 @@ function mold_plot_register_block()
                     'mold-' . $block . '-style',
                     plugin_dir_url(__FILE__) . "build/$block/style-index.css",
                     array(),
-                    '1.0.0'
+                    MOLD_PLOT_VERSION
                 );
 			} else {
 				register_block_type(plugin_dir_path(__FILE__) . "build/$block");
