@@ -24,17 +24,17 @@ function compileSass() {
 function generatePot() {
     return gulp.src('**/*.php')
         .pipe(wpPot({
-            domain: 'mold-tour',
-            package: 'Mold Tour'
+            domain: 'mold-plot',
+            package: 'Mold Plot'
         }))
-        .pipe(gulp.dest('languages/mold-tour.pot'));
+        .pipe(gulp.dest('languages/mold-plot.pot'));
 }
 
 // Check text domains
 function checkTextDomain() {
     return gulp.src('**/*.php')
         .pipe(checktextdomain({
-            text_domain: 'mold-tour',
+            text_domain: 'mold-plot',
             keywords: [
                 '__:1,2d',
                 '_e:1,2d',

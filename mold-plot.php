@@ -25,7 +25,9 @@ define('MOLD_PLOT_BASE_URL', plugin_dir_url(__FILE__));
 
 function mold_plot_is_mold_block_active()
 {
-	include_once(ABSPATH . 'wp-admin/includes/plugin.php');
+	if ( ! function_exists( 'is_plugin_active' ) ) {
+		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+	}
 	return is_plugin_active('mold-blocks/mold-blocks.php');
 }
 
@@ -38,10 +40,7 @@ if (!function_exists('mold_load_plot_plugin_textdomain')) {
 	function mold_load_plot_plugin_textdomain()
 	{
 		$domain = 'mold-plot';
-		$locale = apply_filters('mold_plot_plugin_locale', get_locale(), $domain);
-		// wp-content/languages/plugin-name/plugin-name-de_DE.mo
-		load_textdomain($domain, trailingslashit(WP_LANG_DIR) . $domain . '/' . $domain . '-' . $locale . '.mo');
-        // load_plugin_textdomain is discouraged.
+		load_plugin_textdomain($domain, false, dirname(plugin_basename(__FILE__)) . '/languages/');
 	}
 	add_action('plugins_loaded', 'mold_load_plot_plugin_textdomain');
 }
@@ -56,7 +55,7 @@ if (!function_exists('mold_load_plot_admin_styles')) {
 
 		global $post;
 		if (is_object($post) && ($post->post_type == 'plot')) {
-			wp_enqueue_script('plotadmin', MOLD_PLOT_BASE_URL . '/js/plot-admin.js', ['wp-data', 'wp-edit-post', 'wp-dom-ready'], false, MOLD_PLOT_VERSION);
+			wp_enqueue_script('plotadmin', MOLD_PLOT_BASE_URL . 'js/plot-admin.js', ['wp-data', 'wp-edit-post', 'wp-dom-ready'], false, MOLD_PLOT_VERSION);
 		}
 	}
 	add_action('admin_enqueue_scripts', 'mold_load_plot_admin_styles');
@@ -106,7 +105,7 @@ function mold_plot_register_block()
 			if (file_exists(plugin_dir_path(__FILE__) . 'inc/' . $block . '.php')) {
 				$function_name = 'mold_plot_render_' . str_replace('-', '_', str_replace('block-', '', $block));
 				require_once plugin_dir_path(__FILE__) . 'inc/' . $block . '.php';
-				register_block_type(__DIR__ . "/build/$block", [
+				register_block_type(plugin_dir_path(__FILE__) . "build/$block", [
 					'render_callback' => $function_name,
                     'style' => 'mold-' . $block . '-style'
 				]);
@@ -117,7 +116,7 @@ function mold_plot_register_block()
                     '1.0.0'
                 );
 			} else {
-				register_block_type(__DIR__ . "/build/$block");
+				register_block_type(plugin_dir_path(__FILE__) . "build/$block");
 			}
 		}
 	}
@@ -137,8 +136,8 @@ if (file_exists($mold_plot_cpt_file)) {
 	/**
 	 * Plot Setting
 	 */
-	require_once 'cpt-plot/plot-setting.php';
-	require_once 'cpt-plot/cpm-fields.php';
+	require_once plugin_dir_path(__FILE__) . 'cpt-plot/plot-setting.php';
+	require_once plugin_dir_path(__FILE__) . 'cpt-plot/cpm-fields.php';
 
 }
 

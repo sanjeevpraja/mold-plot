@@ -15,18 +15,12 @@ const tempDir = path.join(rootDir, '.zip_temp');
 // Folders/files to exclude (top-level)
 const excludeList = [
   'node_modules',
-  'src',
   '.git',
   '.gitignore',
-  'package.json',
-  'package-lock.json',
   'yarn.lock',
-  'gulpfile.js',
-  'gulpfile.mjs',
   '.zip_temp',
   'dist',
   'zip.js',
-  'webpack.config.js',
   '.idea',
   'prepros.config',
   'prepros-6.config',
