@@ -20,7 +20,21 @@ Features:
 *   AJAX-powered Featured Plot toggling
 *   Integration with Mold Blocks (if active)
 
-Could be use to add image and text over any image as label or pin. add adds custom post type plot which contain detail information about the plot.
+== Source Code ==
+
+The source code for this plugin, including the non-compiled version of the JavaScript and CSS source code (located in the `src/` and `scss/` directories), is included in this package and is also available at:
+https://github.com/sanjeevpraja/wp-mold-plot
+
+== Build Instructions ==
+
+If you wish to build the plugin from the source code, please follow these steps:
+
+1.  Clone the repository: `git clone https://github.com/sanjeevpraja/wp-mold-plot.git`
+2.  Navigate to the plugin directory: `cd wp-mold-plot`
+3.  Install dependencies: `npm install`
+4.  Build the production assets: `npm run build`
+
+The built files will be located in the `build/` directory.
 
 == Installation ==
 

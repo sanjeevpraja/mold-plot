@@ -20,11 +20,18 @@ const excludeList = [
   'yarn.lock',
   '.zip_temp',
   'dist',
-  'zip.js',
   '.idea',
   'prepros.config',
   'prepros-6.config',
-  '.DS_Store'
+  '.DS_Store',
+  'package-lock.json',
+  'package.json',
+  'zip.mjs',
+  'gulpfile.js',
+  'webpack.config.js',
+  'scss',
+  'readme-self.txt',
+  'src'
 ];
 
 // Helper: recursively copy excluding `.map` files
