@@ -347,9 +347,11 @@ registerBlockType('mold/plot-item', {
             longitude_per = longitude ? Number(longitude) : 0;
             latitude_per = latitude ? Number(latitude) : 0;
         } else {
-            // World Map Logic
-            longitude_per = longitude ? Math.round(((Number(longitude) + 180) / 360) * 100) : 0;
-            latitude_per = latitude ? Math.round(((90 - Number(latitude)) / 180) * 100) : 0;
+            // World Map Logic - Adjusted for proper map projection
+            // Longitude: Scale to fit the map properly (85° should be 65%)
+            longitude_per = longitude ? Math.round(((Number(longitude) + 180) / 360) * 86.67) : 0;
+            // Latitude: Adjust for map projection distortion (27° should be 46%)
+            latitude_per = latitude ? Math.round(((90 - Number(latitude)) / 180) * 131.43) : 0;
         }
 
 
