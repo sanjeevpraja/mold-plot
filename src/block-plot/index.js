@@ -1,15 +1,14 @@
-import worldMapUrl from './world-map.svg?url';
-import worldMapPngUrl from './world-map-color.png';
 import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, InspectorControls, InnerBlocks, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 import { PanelBody, RangeControl, SelectControl, Button } from '@wordpress/components';
 import ColorControl from '../components/ColorControl';
-import { __ } from '@wordpress/i18n'; // Import translation function
+import { __ } from '@wordpress/i18n';
+import { getPlotBlockInlineStyles } from '../utils/plot-background';
 
 import './editor.scss';
 import './style.scss';
 
-const plotTypeOptions = [ // Rename the array
+const plotTypeOptions = [
     { label: 'World Map', value: 'world-map' },
     { label: 'World Map (SVG)', value: 'world-map-svg' },
     { label: 'Image', value: 'image' },
@@ -20,19 +19,6 @@ const tooltipTypeOptions = [
     { label: 'Show on Hover', value: 'tooltip-show-on-hover' },
     { label: 'Rotate', value: 'tooltip-rotate' },
 ];
-
-const getPlotAspectRatioStyle = (width, height) => {
-    const w = Math.max(1, width || 100);
-    const h = Math.max(1, height || 80);
-    return `${w} / ${h}`;
-};
-
-const getPlotAspectRatioInlineStyle = (plotType, width, height) => {
-    if (plotType !== 'image') {
-        return {};
-    }
-    return { '--plotAspectRatio': getPlotAspectRatioStyle(width, height) };
-};
 
 registerBlockType('mold/plot', {
     icon: {
@@ -71,10 +57,12 @@ registerBlockType('mold/plot', {
             aspectRatioWidth,
             aspectRatioHeight,
         } = attributes;
+
+        const plotStyles = getPlotBlockInlineStyles(attributes);
+
         const blockProps = useBlockProps({
-            withoutDefaultClassName: true,
             className: 'mold-plot-edit',
-            style: getPlotAspectRatioInlineStyle(plotType, aspectRatioWidth, aspectRatioHeight),
+            style: plotStyles,
         });
 
         return (
@@ -83,9 +71,9 @@ registerBlockType('mold/plot', {
                     <PanelBody title={__('Plot Settings', 'wp-mold')} initialOpen={true}>
                         <SelectControl
                             label={__('Plot Type', 'wp-mold')}
-                            value={plotType} // attribute
+                            value={plotType}
                             onChange={(newPlotType) => setAttributes({ plotType: newPlotType })}
-                            options={plotTypeOptions} // Directly use the array
+                            options={plotTypeOptions}
                         />
                         {plotType === 'image' && (
                             <MediaUploadCheck>
@@ -181,7 +169,6 @@ registerBlockType('mold/plot', {
                             min={8}
                             max={24}
                         />
-
                         <RangeControl
                             label={__('Tooltip Border Radius', 'wp-mold')}
                             value={tooltipBorderRadius}
@@ -192,11 +179,11 @@ registerBlockType('mold/plot', {
                     </PanelBody>
                 </InspectorControls>
 
-
                 <div {...blockProps}>
                     <div className={`mold-plot-map plot-type-${plotType} ${tooltipType}`}>
                         <InnerBlocks
                             allowedBlocks={['mold/plot-item']}
+                            renderAppender={InnerBlocks.ButtonBlockAppender}
                         />
                     </div>
                 </div>
@@ -206,47 +193,16 @@ registerBlockType('mold/plot', {
     save: ({ attributes }) => {
         const {
             plotType,
-            imageUrl,
-            bgColor,
-            mapColor,
             tooltipType,
             tooltipInterval,
-            tooltipBgColor,
-            tooltipTextColor,
-            tooltipFontSize,
-            tooltipBorderRadius,
-            aspectRatioWidth,
-            aspectRatioHeight,
         } = attributes;
 
-        const defaultBgImage = worldMapUrl;
-
-        let bgImage = defaultBgImage;
-        if (plotType === 'image' && imageUrl) {
-            bgImage = imageUrl;
-        } else if (plotType === 'image' && !imageUrl) {
-            bgImage = ''; // No image if type is image but none selected
-        } else if (plotType === 'world-map-svg') {
-            bgImage = worldMapUrl;
-        } else if (plotType === 'world-map') {
-            bgImage = worldMapPngUrl;
-        }
-
         const blockProps = useBlockProps.save({
-            style: {
-                '--bgImage': bgImage ? `url(${bgImage})` : 'none',
-                "--bgColor": bgColor,
-                "--mapColor": mapColor,
-                "--tooltipBgColor": tooltipBgColor,
-                "--tooltipTextColor": tooltipTextColor,
-                "--tooltipFontSize": `${tooltipFontSize}px`,
-                "--tooltipBorderRadius": `${tooltipBorderRadius}px`,
-                ...getPlotAspectRatioInlineStyle(plotType, aspectRatioWidth, aspectRatioHeight),
-            },
+            style: getPlotBlockInlineStyles(attributes),
         });
 
         return (
-            <div  {...blockProps}>
+            <div {...blockProps}>
                 <div
                     className={`mold-plot-map plot-type-${plotType} ${tooltipType}`}
                     data-interval={tooltipInterval}

@@ -1,66 +1,41 @@
-/* Editor styles */
+/* Editor-only tweaks; pin layout uses frontend style.scss */
 @use '../styles/_color' as *;
 
+.mold-plot-edit .block-editor-block-list__block.wp-block-mold-plot-item {
+  margin: 0;
+  max-width: none;
 
-.block-editor-block-list__block.wp-block-mold-plot-item{
-  display: grid;
-  grid-template-columns: 100px 1fr;
-  gap: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  .plot-item-image{
-    $height: 100px;
-    height: $height;
-    width: $height;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    object-position: center;
-    background: #f2f2f2;
-      .btn-add-media{
-    height: $height;
-    width: $height;
-    display: grid;
-    place-content: center;
-    background: $primary-500;
-    border: 1px solid $primary-500;
-    color: #ffffff;
-    border-radius: 2px;
+  &.is-selected .plot-item-image,
+  &.has-child-selected .plot-item-image {
+    outline: 2px solid var(--wp-admin-theme-color, #3858e9);
+    outline-offset: 2px;
+    border-radius: var(--border-radius, 0);
   }
-  img{
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    object-position: center;
-  }
-  }
-  .plot-item-info{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    .plot-description-placeholder{
-      min-height: 50px;
-      background: #f2f2f2;
+
+  .plot-item-image {
+    cursor: pointer;
+
+    .btn-add-media {
+      display: grid;
+      place-content: center;
+      width: var(--width, 60px);
+      height: var(--height, 60px);
+      padding: 0;
+      background: $primary-500;
+      border: 1px solid $primary-500;
+      color: #fff;
+      border-radius: var(--border-radius, 2px);
+      cursor: pointer;
+
+      .dashicons {
+        width: 24px;
+        height: 24px;
+        font-size: 24px;
+      }
     }
   }
-  .plot-meta{
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    font-size: 10px;
-    .plot-lon-lat{
-      display: flex;
-      gap: 30px;
-    }
-    label{
-      margin-bottom: 0;
-      color: #666666;
-    }
-    .components-base-control__field,
-    .components-flex{
-      display: flex;
-      flex-direction: row;
-      gap: 10px;
-      align-items: center;
-    }
+
+  .plot-image-trigger {
+    cursor: pointer;
   }
 }
