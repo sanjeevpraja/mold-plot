@@ -8,11 +8,11 @@
 
     &.plot-type-world-map,
     &.plot-type-world-map-svg {
-        aspect-ratio: 1192 / 610;
+       aspect-ratio: 26/17;
     }
 
     &.plot-type-image {
-        aspect-ratio: var(--plotAspectRatio, 1192 / 610);
+        aspect-ratio: var(--plotAspectRatio, 100 / 80);
     }
 
     &.plot-type-image,

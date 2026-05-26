@@ -258,9 +258,6 @@ registerBlockType('mold/plot-item', {
                             onChange={(value) => setAttributes({ plotId: value })}
                             help={__('Optional linked plot post for modal details.', 'mold-plot')}
                         />
-                    </PanelBody>
-
-                    <PanelBody title={__('Image Settings', 'mold-plot')} initialOpen={false}>
                         <MediaUploadCheck>
                             <MediaUpload
                                 onSelect={handleImageChange}

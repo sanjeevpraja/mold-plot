@@ -2,7 +2,7 @@
 @use '../styles/_color' as *;
 
 .plot-item {
-    position: absolute;
+    position: absolute !important;
     top: var(--y-value);
     left: var(--x-value);
 
