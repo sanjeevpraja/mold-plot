@@ -21,6 +21,19 @@ const tooltipTypeOptions = [
     { label: 'Rotate', value: 'tooltip-rotate' },
 ];
 
+const getPlotAspectRatioStyle = (width, height) => {
+    const w = Math.max(1, width || 100);
+    const h = Math.max(1, height || 80);
+    return `${w} / ${h}`;
+};
+
+const getPlotAspectRatioInlineStyle = (plotType, width, height) => {
+    if (plotType !== 'image') {
+        return {};
+    }
+    return { '--plotAspectRatio': getPlotAspectRatioStyle(width, height) };
+};
+
 registerBlockType('mold/plot', {
     icon: {
         src: <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -39,6 +52,8 @@ registerBlockType('mold/plot', {
         tooltipTextColor: { type: "string", default: '#222' },
         tooltipFontSize: { type: "number", default: 12 },
         tooltipBorderRadius: { type: "number", default: 4 },
+        aspectRatioWidth: { type: "number", default: 100 },
+        aspectRatioHeight: { type: "number", default: 80 },
     },
     edit: ({ attributes, setAttributes }) => {
         const {
@@ -53,10 +68,13 @@ registerBlockType('mold/plot', {
             tooltipTextColor,
             tooltipFontSize,
             tooltipBorderRadius,
+            aspectRatioWidth,
+            aspectRatioHeight,
         } = attributes;
         const blockProps = useBlockProps({
             withoutDefaultClassName: true,
             className: 'mold-plot-edit',
+            style: getPlotAspectRatioInlineStyle(plotType, aspectRatioWidth, aspectRatioHeight),
         });
 
         return (
@@ -91,6 +109,26 @@ registerBlockType('mold/plot', {
                                     )}
                                 />
                             </MediaUploadCheck>
+                        )}
+                        {plotType === 'image' && (
+                            <>
+                                <RangeControl
+                                    label={__('Aspect ratio width', 'mold-plot')}
+                                    value={aspectRatioWidth}
+                                    onChange={(value) => setAttributes({ aspectRatioWidth: value })}
+                                    min={1}
+                                    max={4000}
+                                    step={1}
+                                />
+                                <RangeControl
+                                    label={__('Aspect ratio height', 'mold-plot')}
+                                    value={aspectRatioHeight}
+                                    onChange={(value) => setAttributes({ aspectRatioHeight: value })}
+                                    min={1}
+                                    max={4000}
+                                    step={1}
+                                />
+                            </>
                         )}
                         <ColorControl
                             label={__('Background Color', 'wp-mold')}
@@ -156,9 +194,11 @@ registerBlockType('mold/plot', {
 
 
                 <div {...blockProps}>
-                    <InnerBlocks
-                        allowedBlocks={['mold/plot-item']}
-                    />
+                    <div className={`mold-plot-map plot-type-${plotType} ${tooltipType}`}>
+                        <InnerBlocks
+                            allowedBlocks={['mold/plot-item']}
+                        />
+                    </div>
                 </div>
             </>
         );
@@ -175,6 +215,8 @@ registerBlockType('mold/plot', {
             tooltipTextColor,
             tooltipFontSize,
             tooltipBorderRadius,
+            aspectRatioWidth,
+            aspectRatioHeight,
         } = attributes;
 
         const defaultBgImage = worldMapUrl;
@@ -199,12 +241,16 @@ registerBlockType('mold/plot', {
                 "--tooltipTextColor": tooltipTextColor,
                 "--tooltipFontSize": `${tooltipFontSize}px`,
                 "--tooltipBorderRadius": `${tooltipBorderRadius}px`,
+                ...getPlotAspectRatioInlineStyle(plotType, aspectRatioWidth, aspectRatioHeight),
             },
         });
 
         return (
             <div  {...blockProps}>
-                <div className={`mold-plot-map plot-type-${plotType} ${tooltipType}`} data-interval={tooltipInterval}>
+                <div
+                    className={`mold-plot-map plot-type-${plotType} ${tooltipType}`}
+                    data-interval={tooltipInterval}
+                >
                     <InnerBlocks.Content />
                 </div>
             </div>

@@ -2,15 +2,26 @@
 @use '../styles/_color';
 
 .mold-plot-map {
-    aspect-ratio: 1192/610;
+    width: 100%;
     background-color: var(--bgColor);
     position: relative;
+
+    &.plot-type-world-map,
+    &.plot-type-world-map-svg {
+        aspect-ratio: 1192 / 610;
+    }
+
+    &.plot-type-image {
+        aspect-ratio: var(--plotAspectRatio, 1192 / 610);
+    }
 
     &.plot-type-image,
     &.plot-type-world-map {
         background-image: var(--bgImage);
-        background-size: cover;
+        background-size: contain;
         background-position: center;
+        background-repeat: no-repeat;
+
     }
 
     &.plot-type-world-map-svg {

@@ -3,7 +3,7 @@
 Plugin Name: Mold Plot
 Plugin URI: https://moldthemes.com
 Description: Mold Plot Plugin
-Version: 1.0
+Version: 1.1
 Author: Mold Themes
 Author URI: https://www.moldthemes.com
 Text Domain: mold-plot

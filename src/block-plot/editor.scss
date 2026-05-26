@@ -1,10 +1,25 @@
 /* Editor styles */
 @use '../styles/_color';
 
-.mold-plot-edit{
-  .block-editor-block-list__layout{
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.mold-plot-edit {
+  .mold-plot-map {
+    width: 100%;
+    min-height: 120px;
+    border: 1px dashed #ccc;
+
+    &.plot-type-world-map,
+    &.plot-type-world-map-svg {
+      aspect-ratio: 1192 / 610;
+    }
+
+    &.plot-type-image {
+      aspect-ratio: var(--plotAspectRatio, 100 / 80);
+    }
+  }
+
+  .block-editor-block-list__layout {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 }
