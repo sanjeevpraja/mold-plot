@@ -171,19 +171,10 @@ registerBlockType('mold/plot-item', {
             style: getPlotItemPositionStyle(plotType, latitude, longitude),
         });
 
-        const renderPlotPin = (open) => (
+        const renderPlotPin = () => (
             <div
                 className="plot-item-image"
                 style={imageStyle}
-                onClick={open}
-                onKeyDown={(event) => {
-                    if (open && (event.key === 'Enter' || event.key === ' ')) {
-                        event.preventDefault();
-                        open();
-                    }
-                }}
-                role={open ? 'button' : undefined}
-                tabIndex={open ? 0 : undefined}
             >
                 {displayImageUrl ? (
                     <div className="plot-image-trigger">
@@ -197,12 +188,6 @@ registerBlockType('mold/plot-item', {
                         type="button"
                         className="btn-add-media"
                         title={__('Add Image', 'mold-plot')}
-                        onClick={(event) => {
-                            event.stopPropagation();
-                            if (open) {
-                                open();
-                            }
-                        }}
                     >
                         <span className="dashicons dashicons-plus" aria-hidden="true" />
                     </button>
@@ -330,14 +315,7 @@ registerBlockType('mold/plot-item', {
                 </InspectorControls>
 
                 <div {...blockProps}>
-                    <MediaUploadCheck>
-                        <MediaUpload
-                            onSelect={handleImageChange}
-                            allowedTypes={['image']}
-                            value={imageId}
-                            render={({ open }) => renderPlotPin(open)}
-                        />
-                    </MediaUploadCheck>
+                    {renderPlotPin()}
                 </div>
             </>
         );
