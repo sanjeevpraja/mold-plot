@@ -213,26 +213,59 @@ registerBlockType('mold/plot-item', {
                             onChange={(newDescription) => setAttributes({ description: newDescription })}
                             help={__('Tooltip text shown above the pin.', 'mold-plot')}
                         />
-                        <TextControl
-                            label={showImageCoordinates ? __('Axis Y (%)', 'mold-plot') : __('Latitude', 'mold-plot')}
-                            value={latitude}
-                            onChange={(value) => updateCoordinate(plotType, 'latitude', value, setAttributes)}
-                            placeholder={showImageCoordinates ? '0-100' : 'e.g., 40.71'}
-                            type="number"
-                            min={showImageCoordinates ? 0 : -90}
-                            max={showImageCoordinates ? 100 : 90}
-                            help={showImageCoordinates ? __('Top (0) to bottom (100).', 'mold-plot') : ''}
-                        />
-                        <TextControl
-                            label={showImageCoordinates ? __('Axis X (%)', 'mold-plot') : __('Longitude', 'mold-plot')}
-                            value={longitude}
-                            onChange={(value) => updateCoordinate(plotType, 'longitude', value, setAttributes)}
-                            placeholder={showImageCoordinates ? '0-100' : 'e.g., -74.00'}
-                            type="number"
-                            min={showImageCoordinates ? 0 : -180}
-                            max={showImageCoordinates ? 100 : 180}
-                            help={showImageCoordinates ? __('Left (0) to right (100).', 'mold-plot') : ''}
-                        />
+                        {showImageCoordinates && (
+                            <>
+                                <RangeControl
+                                    label={__('Axis Y (%)', 'mold-plot')}
+                                    value={latitude}
+                                    onChange={(value) => updateCoordinate(plotType, 'latitude', value, setAttributes)}
+                                    placeholder={'0-100'}
+                                    type="number"
+                                    min={0}
+                                    max={100}
+                                    help={__('Top (0) to bottom (100).', 'mold-plot')}
+                                />
+                                <RangeControl
+                                    label={__('Axis X (%)', 'mold-plot')}
+                                    value={longitude}
+                                    onChange={(value) => updateCoordinate(plotType, 'longitude', value, setAttributes)}
+                                    placeholder={'0-100'}
+                                    type="number"
+                                    min={0}
+                                    max={100}
+                                    help={__('Left (0) to right (100).', 'mold-plot')}
+                                />
+                            </>
+                        )
+                        }
+
+                        {!showImageCoordinates && (
+                            <>
+                                <TextControl
+                                    label={__('Latitude', 'mold-plot')}
+                                    value={latitude}
+                                    onChange={(value) => updateCoordinate(plotType, 'latitude', value, setAttributes)}
+                                    placeholder={'e.g., 40.71'}
+                                    type="number"
+                                    min={-90}
+                                    max={90}
+                                    help={''}
+                                />
+                                <TextControl
+                                    label={__('Longitude', 'mold-plot')}
+                                    value={longitude}
+                                    onChange={(value) => updateCoordinate(plotType, 'longitude', value, setAttributes)}
+                                    placeholder={'e.g., -74.00'}
+                                    type="number"
+                                    min={-180}
+                                    max={180}
+                                    help={''}
+                                />
+                            </>
+                        )
+                        }
+
+
                         <SelectControl
                             label={__('Select Plot', 'mold-plot')}
                             value={plotId}
