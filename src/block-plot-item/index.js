@@ -28,7 +28,7 @@ const updateCoordinate = (plotType, axis, value, setAttributes) => {
     }
 
     setAttributes({
-        [axis]: isNaN(val) ? value : val.toString(),
+        [axis]: isNaN(val) ? null : val,
     });
 };
 
@@ -65,12 +65,20 @@ registerBlockType('mold/plot-item', {
             default: 60
         },
         latitude: {
-            type: 'string',
-            default: ''
+            type: 'number',
+            default: null
         },
         longitude: {
+            type: 'number',
+            default: null
+        },
+        tooltipDisplay: {
             type: 'string',
-            default: ''
+            default: 'show-always'
+        },
+        tooltipPosition: {
+            type: 'string',
+            default: 'top'
         },
         description: {
             type: 'string',
@@ -96,6 +104,8 @@ registerBlockType('mold/plot-item', {
             imageSize,
             latitude,
             longitude,
+            tooltipDisplay,
+            tooltipPosition,
             description,
             plotId,
             plotType,
@@ -166,8 +176,13 @@ registerBlockType('mold/plot-item', {
             '--height': `${imageSize}px`,
         };
 
+        const tooltipDisplayClass = tooltipDisplay === 'show-on-hover'
+            ? 'tooltip-show-on-hover'
+            : 'tooltip-show-always';
+        const tooltipPositionClass = `tooltip-position-${tooltipPosition}`;
+
         const blockProps = useBlockProps({
-            className: 'plot-item',
+            className: ['plot-item', tooltipDisplayClass, tooltipPositionClass].join(' '),
             style: getPlotItemPositionStyle(plotType, latitude, longitude),
         });
 
@@ -213,11 +228,33 @@ registerBlockType('mold/plot-item', {
                             onChange={(newDescription) => setAttributes({ description: newDescription })}
                             help={__('Tooltip text shown above the pin.', 'mold-plot')}
                         />
+                        <SelectControl
+                            label={__('Tooltip Display', 'mold-plot')}
+                            value={tooltipDisplay}
+                            options={[
+                                { label: __('Show always', 'mold-plot'), value: 'show-always' },
+                                { label: __('Show on hover', 'mold-plot'), value: 'show-on-hover' }
+                            ]}
+                            onChange={(value) => setAttributes({ tooltipDisplay: value })}
+                            help={__('Choose whether the tooltip is always visible or only shown on hover.', 'mold-plot')}
+                        />
+                        <SelectControl
+                            label={__('Tooltip Position', 'mold-plot')}
+                            value={tooltipPosition}
+                            options={[
+                                { label: __('Top', 'mold-plot'), value: 'top' },
+                                { label: __('Bottom', 'mold-plot'), value: 'bottom' },
+                                { label: __('Left', 'mold-plot'), value: 'left' },
+                                { label: __('Right', 'mold-plot'), value: 'right' }
+                            ]}
+                            onChange={(value) => setAttributes({ tooltipPosition: value })}
+                            help={__('Place the tooltip around the plot pin.', 'mold-plot')}
+                        />
                         {showImageCoordinates && (
                             <>
                                 <RangeControl
                                     label={__('Axis Y (%)', 'mold-plot')}
-                                    value={latitude}
+                                    value={latitude ?? 0}
                                     onChange={(value) => updateCoordinate(plotType, 'latitude', value, setAttributes)}
                                     placeholder={'0-100'}
                                     type="number"
@@ -227,7 +264,7 @@ registerBlockType('mold/plot-item', {
                                 />
                                 <RangeControl
                                     label={__('Axis X (%)', 'mold-plot')}
-                                    value={longitude}
+                                    value={longitude ?? 0}
                                     onChange={(value) => updateCoordinate(plotType, 'longitude', value, setAttributes)}
                                     placeholder={'0-100'}
                                     type="number"
@@ -243,7 +280,7 @@ registerBlockType('mold/plot-item', {
                             <>
                                 <TextControl
                                     label={__('Latitude', 'mold-plot')}
-                                    value={latitude}
+                                    value={latitude ?? ''}
                                     onChange={(value) => updateCoordinate(plotType, 'latitude', value, setAttributes)}
                                     placeholder={'e.g., 40.71'}
                                     type="number"
@@ -253,7 +290,7 @@ registerBlockType('mold/plot-item', {
                                 />
                                 <TextControl
                                     label={__('Longitude', 'mold-plot')}
-                                    value={longitude}
+                                    value={longitude ?? ''}
                                     onChange={(value) => updateCoordinate(plotType, 'longitude', value, setAttributes)}
                                     placeholder={'e.g., -74.00'}
                                     type="number"
@@ -294,34 +331,38 @@ registerBlockType('mold/plot-item', {
                                             </button>
                                         ) : (
                                             <div>
-                                                <img
-                                                    src={displayImageUrl}
-                                                    alt={imageAlt}
-                                                    style={{
-                                                        maxWidth: '100%',
-                                                        marginBottom: '10px'
-                                                    }}
-                                                />
-                                                <button
-                                                    type="button"
-                                                    onClick={open}
-                                                    className="components-button is-secondary"
-                                                    style={{ marginRight: '10px' }}
-                                                >
-                                                    {__('Replace Image', 'mold-plot')}
-                                                </button>
-                                                <button
-                                                    type="button"
-                                                    onClick={() => setAttributes({
-                                                        imageId: 0,
-                                                        imageUrl: '',
-                                                        thumbnailUrl: '',
-                                                        imageAlt: ''
-                                                    })}
-                                                    className="components-button is-link is-destructive"
-                                                >
-                                                    {__('Remove Image', 'mold-plot')}
-                                                </button>
+                                                <div>
+                                                    <img
+                                                        src={displayImageUrl}
+                                                        alt={imageAlt}
+                                                        style={{
+                                                            maxWidth: '100%',
+                                                            marginBottom: '10px'
+                                                        }}
+                                                    />
+                                                </div>
+                                                <div style={{ marginBottom: '10px' }}>
+                                                    <button
+                                                        type="button"
+                                                        onClick={open}
+                                                        className="components-button is-secondary"
+                                                        style={{ marginRight: '10px' }}
+                                                    >
+                                                        {__('Replace Image', 'mold-plot')}
+                                                    </button>
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => setAttributes({
+                                                            imageId: 0,
+                                                            imageUrl: '',
+                                                            thumbnailUrl: '',
+                                                            imageAlt: ''
+                                                        })}
+                                                        className="components-button is-link is-destructive"
+                                                    >
+                                                        {__('Remove Image', 'mold-plot')}
+                                                    </button>
+                                                </div>
                                             </div>
                                         )}
                                     </div>
@@ -364,13 +405,19 @@ registerBlockType('mold/plot-item', {
             imageSize,
             latitude,
             longitude,
+            tooltipDisplay,
+            tooltipPosition,
             description,
             plotId,
             plotType,
         } = attributes;
 
         const blockProps = useBlockProps.save({
-            className: 'plot-item',
+            className: [
+                'plot-item',
+                tooltipDisplay === 'show-on-hover' ? 'tooltip-show-on-hover' : 'tooltip-show-always',
+                `tooltip-position-${tooltipPosition}`
+            ].join(' '),
             style: getPlotItemPositionStyle(plotType, latitude, longitude),
         });
 
