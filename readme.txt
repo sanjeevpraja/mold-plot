@@ -37,10 +37,11 @@ It works with any theme, but relies on some shared styles if used with Mold Them
 
 == Changelog ==
 
-= 3.0 =
+= 2.0 =
 *   Updated for latest WordPress versions.
 *   Improved security and escaping.
 *   Added Gutenberg blocks support.
+*   Fixed aspect ratio issue.
 
 = 1.0 =
 *   Initial release.
