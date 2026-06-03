@@ -22,6 +22,8 @@ Features:
 
 Could be use to add image and text over any image as label or pin. add adds custom post type plot which contain detail information about the plot.
 
+Demo: https://moldthemes.com/mold-plot/
+
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/wp-mold-plot` directory, or install the plugin through the WordPress plugins screen directly.
