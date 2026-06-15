@@ -14,6 +14,8 @@
 
   .plot-item-image {
     cursor: pointer;
+    width: var(--width, 60px);
+    height: var(--height, 60px);
     img {
       width: var(--width, 60px);
       height: var(--height, 60px);
