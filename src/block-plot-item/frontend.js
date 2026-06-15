@@ -1,5 +1,5 @@
 // Plot Block Frontend Interactivity - REST API Version (No Nonce Required)
-(function() {
+(function () {
     // Wait for DOM to be ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initPlotBlocks);
@@ -11,9 +11,12 @@
         const plotBlocks = document.querySelectorAll('.wp-block-mold-plot-item');
         plotBlocks.forEach(block => {
             const trigger = block.querySelector('.plot-image-trigger');
-            const plotId = trigger?.getAttribute('data-plot-id');
-            if (trigger && plotId) {
-                trigger.addEventListener('click', function(e) {
+            // Read plot id and ensure it's a non-empty, positive number before attaching handler
+            const rawPlotId = trigger?.getAttribute('data-plot-id');
+            const plotId = rawPlotId ? rawPlotId.toString().trim() : '';
+            const plotIdNum = Number(plotId);
+            if (trigger && plotId && !Number.isNaN(plotIdNum) && plotIdNum > 0) {
+                trigger.addEventListener('click', function (e) {
                     e.preventDefault();
                     openPlotModal(plotId);
                 });
@@ -64,7 +67,7 @@
             // Add event listeners for closing
             modal.querySelector('.plot-modal__overlay').addEventListener('click', closePlotModal);
             modal.querySelector('.plot-modal__close').addEventListener('click', closePlotModal);
-            document.addEventListener('keydown', function(e) {
+            document.addEventListener('keydown', function (e) {
                 if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
                     closePlotModal();
                 }
@@ -98,7 +101,7 @@
                 modal.querySelector('.plot-modal__content').innerHTML = plot.content.rendered;
 
                 if (featuredImage) {
-                    modal.querySelector('.plot-modal__image').innerHTML = 
+                    modal.querySelector('.plot-modal__image').innerHTML =
                         `<img src="${featuredImage}" alt="${plot.title.rendered}"/>`;
                 } else {
                     modal.querySelector('.plot-modal__image').innerHTML = '';

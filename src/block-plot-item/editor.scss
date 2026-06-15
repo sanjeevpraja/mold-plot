@@ -1,5 +1,5 @@
 /* Editor-only tweaks; pin layout uses frontend style.scss */
-@use '../styles/_color' as *;
+@use "../styles/_color" as *;
 
 .mold-plot-edit .block-editor-block-list__block.wp-block-mold-plot-item {
   margin: 0;
@@ -7,24 +7,29 @@
 
   &.is-selected .plot-item-image,
   &.has-child-selected .plot-item-image {
-    outline: 2px solid var(--wp-admin-theme-color, #3858e9);
+    //outline: 2px solid var(--wp-admin-theme-color, #3858e9);
     outline-offset: 2px;
     border-radius: var(--border-radius, 0);
   }
 
   .plot-item-image {
     cursor: pointer;
+    img {
+      width: var(--width, 60px);
+      height: var(--height, 60px);
+      border-radius: var(--border-radius, 2px);
+    }
 
     .btn-add-media {
       display: grid;
       place-content: center;
       width: var(--width, 60px);
       height: var(--height, 60px);
+      border-radius: var(--border-radius, 2px);
       padding: 0;
       background: $primary-500;
       border: 1px solid $primary-500;
       color: #fff;
-      border-radius: var(--border-radius, 2px);
       cursor: pointer;
 
       .dashicons {
