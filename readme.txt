@@ -13,6 +13,7 @@ Mold Plot Plugin adds custom post types and Gutenberg blocks for managing Plots.
 == Description ==
 
 Mold Plot Plugin is a comprehensive solution for managing "Plot" content types in WordPress. It introduces a custom post type for Plots and provides a set of Gutenberg blocks to display plot metadata effectively.
+Demo: https://moldthemes.com/mold-plot/
 
 Features:
 *   Custom Post Type: Plot
@@ -22,7 +23,7 @@ Features:
 
 Could be use to add image and text over any image as label or pin. add adds custom post type plot which contain detail information about the plot.
 
-Demo: https://moldthemes.com/mold-plot/
+
 
 == Installation ==
 
