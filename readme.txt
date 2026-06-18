@@ -1,4 +1,4 @@
-=== Mold Plot ===
+=== Mold Plot - Add image pin on map or image===
 Contributors: moldthemes
 Tags: plot, gutenberg, block
 Requires at least: 6.0
